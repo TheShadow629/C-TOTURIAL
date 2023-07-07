@@ -8,7 +8,7 @@ class Node { //节点类
 private:
 	T data; //数据域
 	Node<T>* next;//指针域
-	Node() {}//构造方法
+	//Node() {}//构造方法
 };
 
 template<class T>

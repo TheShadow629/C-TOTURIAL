@@ -5,6 +5,7 @@
 #include "Queue.h"
 #include <iostream>
 #include <set>
+#include <map> 
 using namespace std;
 
 int SeqListTest()
@@ -126,6 +127,7 @@ int QueueTest() {
 
 int SetTest()
 {
+	//https://blog.csdn.net/qq_42185999/article/details/107031098
 	//set 翻译为集合，是一个内部自动有序且不含重复元素的容器。
 	//当出现需要去掉重复元素的情况，而且有可能因这些元素比较大或者类型不是 int 型而不能直接开散列表，在这种情况下就可以用 set 来保留元素本身而不考虑它的个数。
 	//当然，上面说的情况也可以通过再开一个数组进行下标和元素的对应来解决，但是 set 提供了更为直观的接口，并且加入 set 之后可以实现自动排序。
@@ -170,6 +172,55 @@ int SetTest()
 
 int MapTest()
 {
+	//https://blog.csdn.net/sevenjoin/article/details/81943864
+
+	// 定义一个map对象
+	map<int, string> mapStudent;
+
+
+	// 第一种 用insert函數插入pair
+	mapStudent.insert(pair<int, string>(000, "student_zero"));
+	// 第二种 用insert函数插入value_type数据
+	mapStudent.insert(map<int, string>::value_type(001, "student_one"));
+	// 第三种 用"array"方式插入
+	mapStudent[123] = "student_first";
+	mapStudent[456] = "student_second";
+
+
+	mapStudent.insert(map<int, string>::value_type(001, "student_one"));
+	mapStudent.insert(map<int, string>::value_type(001, "student_two"));
+
+	// 构造定义，返回一个pair对象
+	//我们通过pair的第二个变量来知道是否插入成功，它的第一个变量返回的是一个map的迭代器，
+	//如果插入成功的话Insert_Pair.second应该是true的，否则为false。
+	pair<map<int, string>::iterator, bool> Insert_Pair;
+	Insert_Pair = mapStudent.insert(map<int, string>::value_type(001, "student_one"));
+	if (!Insert_Pair.second)
+		cout << "Error insert new element" << endl;
+
+
+	//当所查找的关键key出现时，它返回数据所在对象的位置，如果沒有，返回iter与end函数的值相同。
+	// find 返回迭代器指向当前查找元素的位置否则返回map::end()位置
+	map<int, string>::iterator iter = mapStudent.find(123);
+	if (iter != mapStudent.end())
+		cout << "Find, the value is" << iter->second << endl;
+	else
+		cout << "Do not Find" << endl;
+
+
+	//刪除与清空元素
+	//迭代器刪除
+	iter = mapStudent.find(123);
+	mapStudent.erase(iter);
+	//用关键字刪除
+	int n = mapStudent.erase(123); //如果刪除了會返回1，否則返回0
+	//用迭代器范围刪除 : 把整个map清空
+	mapStudent.erase(mapStudent.begin(), mapStudent.end());
+	//等同于mapStudent.clear()
+
+	//map的大小
+	int nSize = mapStudent.size();
+
 	return 0;
 }
 
