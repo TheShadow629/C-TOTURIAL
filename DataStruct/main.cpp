@@ -4,6 +4,7 @@
 #include "Stack.h"
 #include "Queue.h"
 #include <iostream>
+#include <set>
 using namespace std;
 
 int SeqListTest()
@@ -125,6 +126,45 @@ int QueueTest() {
 
 int SetTest()
 {
+	//set 翻译为集合，是一个内部自动有序且不含重复元素的容器。
+	//当出现需要去掉重复元素的情况，而且有可能因这些元素比较大或者类型不是 int 型而不能直接开散列表，在这种情况下就可以用 set 来保留元素本身而不考虑它的个数。
+	//当然，上面说的情况也可以通过再开一个数组进行下标和元素的对应来解决，但是 set 提供了更为直观的接口，并且加入 set 之后可以实现自动排序。
+
+	set<int> st;
+	for (int i = 1; i <= 20; i++)
+	{
+		//insert(x) 可将 x 插入 set 容器中，并自动递增排序和去重，时间复杂度为 O（logN），其中 N 为 set 内的元素个数。
+		st.insert(i);
+	}
+	for (set<int>::iterator it = st.begin(); it != st.end(); it++)
+	{
+		//set只能通过迭代器访问
+		printf("%d ", *it);
+	}
+
+	//find(value) 返回 set 中对应值为 value 的迭代器，时间复杂度为 O（logN），其中 N 为 set 内的元素个数。
+	set<int>::iterator it = st.find(2); //在 set 中查找2，返回其迭代器。
+	printf("%d ", *it);
+
+	//st.erase(it)  ，即删除迭代器为 it 处的元素，时间复杂度为 O（1）
+	st.erase(it);
+	for (set<int>::iterator it = st.begin(); it != st.end(); it++)
+	{
+		//set只能通过迭代器访问
+		printf("%d ", *it);
+	}
+
+	//value 为所需要删除元素的值。时间复杂度为 O（logN）
+	st.erase(3); 
+
+	//erase(first,last) 即删除 [first,last) 内的所有元素。其中 first 为所需要删除区间的起始迭代器，而 last 则为所需要删除区间的末尾迭代器的下一个地址。时间复杂度为 O（last-first）。
+	st.erase(st.find(10), st.end());
+
+	//size() 用来获得 set 中元素的个数，时间复杂度为 O（1）
+	st.size();
+
+	//clear() 用来清空 set 中的所有元素，时间复杂度为 O（N），其中 N 为 set 中元素的个数。
+	st.clear();
 	return 0;
 }
 
