@@ -1,0 +1,28 @@
+Student ID: 10223
+Semester:   962
+  Unit Name:  CHM_1020
+  Unit ID: C
+  Credits: 3
+  Marks: 100
+  Date: 26 May 2023
+
+  Unit Name:  MUS_1100
+  Unit ID: H
+  Credits: 1
+  Marks: 96
+  Date: 26 May 2023
+
+  Unit Name:  BIO_1040
+  Unit ID: D
+  Credits: 4
+  Marks: 97
+  Date: 26 May 2023
+
+  Unit Name:  MTH_2400
+  Unit ID: A
+  Credits: 3
+  Marks: 100
+  Date: 26 May 2023
+
+Number of courses = 4
+Total credits     = 11

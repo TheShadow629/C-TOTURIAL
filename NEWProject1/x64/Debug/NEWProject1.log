@@ -1,0 +1,5 @@
+﻿  MAIN.cpp
+C:\Users\laptop\Desktop\LabExc-1-ass\NEWProject1\MAIN.cpp(47,5): error C3861: “Clear”: 找不到标识符
+C:\Users\laptop\Desktop\LabExc-1-ass\NEWProject1\MAIN.cpp(49,1): error C2143: 语法错误: 缺少“;”(在“}”的前面)
+  Result.cpp
+  正在生成代码...

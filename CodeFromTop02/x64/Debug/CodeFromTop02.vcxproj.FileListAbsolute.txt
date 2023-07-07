@@ -1,0 +1,2 @@
+C:\Users\laptop\Desktop\LabExc-1-ass\Project1\x64\Debug\CodeFromTop02.exe.lastcodeanalysissucceeded
+C:\Users\laptop\Desktop\LabExc-1-ass\CodeFromTop02\x64\Debug\NativeCodeAnalysis.read.1.tlog

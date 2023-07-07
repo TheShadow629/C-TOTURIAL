@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1655637183 source:d:\283 remodel\assignment1_34073803_chenying zhao\vector.cpp
+	"Vector.h"
+
+1655635913 source:d:\283 remodel\assignment1_34073803_chenying zhao\main.cpp
+	<iostream>
+	<fstream>
+	"Vector.h"
+
+1655637140 d:\283 remodel\assignment1_34073803_chenying zhao\vector.h
+	<string.h>
+	<iostream>
+

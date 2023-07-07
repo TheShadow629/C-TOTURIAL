@@ -1,0 +1,67 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.35.32217.1",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///c:/users/laptop/desktop/labexc-1-ass/newproject1/main.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "sha-256": "f389550afd10f369514dd900b2a74713b273cc3755fe919df1b708ae13c9fe18"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/laptop/desktop/labexc-1-ass/newproject1/unit.h"
+          },
+          "hashes": {
+            "sha-256": "33220b33dfec3207745162553133f07e4f4c80d940cd82a577df60a384c6dfcd"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/laptop/desktop/labexc-1-ass/newproject1/regist.h"
+          },
+          "hashes": {
+            "sha-256": "9c824c73df15cd722e30aee4d0aaf3d250b35b0aa2811676c71f2631823fe22a"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/laptop/desktop/labexc-1-ass/newproject1/result.h"
+          },
+          "hashes": {
+            "sha-256": "e0bb15419ef04855e68e995019441a3517d5727df9e1f7b8a6901b12ac027d00"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/laptop/desktop/labexc-1-ass/newproject1/date.h"
+          },
+          "hashes": {
+            "sha-256": "f9d9e9fe5625ca4653b0cec8604c6bdd65230d04b6ff56cb0fb03d620fdf9cfb"
+          }
+        }
+      ]
+    }
+  ]
+}

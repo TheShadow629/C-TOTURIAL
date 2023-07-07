@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?><DEFECTS><DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\laptop\Desktop\LabExc-1-ass\Topic02\Practical\registration-code\</FILEPATH>
+      <FILENAME>COURSE.CPP</FILENAME>
+      <LINE>6</LINE>
+      <COLUMN>8</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>未初始化变量 Course::section。始终初始化成员变量(type.6)。</DESCRIPTION>
+    <FUNCTION>Course::{ctor}</FUNCTION>
+    <DECORATED>??0Course@@QEAA@XZ</DECORATED>
+    <FUNCLINE>6</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>Course::section</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\laptop\Desktop\LabExc-1-ass\Topic02\Practical\registration-code\</FILEPATH>
+      <FILENAME>REGIST.CPP</FILENAME>
+      <LINE>6</LINE>
+      <COLUMN>14</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>未初始化变量 Registration::studentId。始终初始化成员变量(type.6)。</DESCRIPTION>
+    <FUNCTION>Registration::{ctor}</FUNCTION>
+    <DECORATED>??0Registration@@QEAA@XZ</DECORATED>
+    <FUNCLINE>6</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>Registration::studentId</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT></DEFECTS>

@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1170900038 source:c:\users\smr\desktop\tmp\light code\light.cpp
+	"Light.h"
+
+1170910562 c:\users\smr\desktop\tmp\light code\light.h
+	<iostream>
+	<string>
+
+1170900054 source:c:\users\smr\desktop\tmp\light code\patternlight.cpp
+	"PatternLight.h"
+
+1554288269 c:\users\smr\desktop\tmp\light code\patternlight.h
+	"Light.h"
+
+1170899368 source:c:\users\smr\desktop\tmp\light code\patternlighttest.cpp
+	"PatternLight.h"
+	<iostream>
+
+1554292066 source:c:\users\smr\desktop\tmp\light code\constructors.cpp
+	"Light.h"
+	<vector>
+
