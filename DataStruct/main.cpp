@@ -183,12 +183,18 @@ int MapTest()
 	// 第二种 用insert函数插入value_type数据
 	mapStudent.insert(map<int, string>::value_type(001, "student_one"));
 	// 第三种 用"array"方式插入
-	mapStudent[123] = "student_first";
 	mapStudent[456] = "student_second";
+	mapStudent[123] = "student_first";
 
+	//mapStudent.insert(pair<int, string>(000, "TESTStudent"));
+	//mapStudent.insert(map<int, string>::value_type(000, "student_one"));
 
-	mapStudent.insert(map<int, string>::value_type(001, "student_one"));
-	mapStudent.insert(map<int, string>::value_type(001, "student_two"));
+	////mapStudent[000] = "student_first";
+
+	//mapStudent.insert(map<int, string>::value_type(001, "student_one"));
+	//mapStudent.insert(map<int, string>::value_type(001, "student_two"));
+
+	//int* p;
 
 	// 构造定义，返回一个pair对象
 	//我们通过pair的第二个变量来知道是否插入成功，它的第一个变量返回的是一个map的迭代器，
@@ -203,23 +209,44 @@ int MapTest()
 	// find 返回迭代器指向当前查找元素的位置否则返回map::end()位置
 	map<int, string>::iterator iter = mapStudent.find(123);
 	if (iter != mapStudent.end())
+	{
 		cout << "Find, the value is" << iter->second << endl;
+		cout << "Find, the value is" << (*(iter)).second << endl;
+	}
 	else
 		cout << "Do not Find" << endl;
 
-
+	bool haveStudent= mapStudent.count(0);
 	//刪除与清空元素
 	//迭代器刪除
 	iter = mapStudent.find(123);
 	mapStudent.erase(iter);
+
+	//mapStudent.erase(mapStudent.find(123));
+
+
 	//用关键字刪除
 	int n = mapStudent.erase(123); //如果刪除了會返回1，否則返回0
+
+	//if (mapStudent.erase(123))
+	//{
+
+	//}
 	//用迭代器范围刪除 : 把整个map清空
 	mapStudent.erase(mapStudent.begin(), mapStudent.end());
+	mapStudent.erase(mapStudent.find(123), mapStudent.end());
+
 	//等同于mapStudent.clear()
 
 	//map的大小
 	int nSize = mapStudent.size();
+
+	map<int, string>::iterator it;
+	for (it = mapStudent.begin(); it != mapStudent.end(); it++) 
+	{
+		cout << (it->first) <<"  " << (it->second);
+	}
+
 
 	return 0;
 }
