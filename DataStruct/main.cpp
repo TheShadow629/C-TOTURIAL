@@ -6,6 +6,7 @@
 #include <iostream>
 #include <set>
 #include <map> 
+
 using namespace std;
 
 int SeqListTest()
@@ -253,11 +254,11 @@ int MapTest()
 
 int main(int argc, char** argv)
 {
-	LinkListTest();
-	DLinkListTest();
-	StackTest();
-	SetTest();
-	MapTest();
-	QueueTest();
+	//LinkListTest();
+	//DLinkListTest();
+	//StackTest();
+	//SetTest();
+	//MapTest();
+	//QueueTest();
 	return 0;
 }

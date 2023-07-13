@@ -21,6 +21,9 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="ConsoleApplication1.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DLinkList.h">
@@ -33,6 +36,15 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Queue.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BinarySearchTree.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BST.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="intBST.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

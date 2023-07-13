@@ -1,4 +1,4 @@
 ﻿  main.cpp
-C:\Users\laptop\Desktop\LabExc-1-ass\DataStruct\main.cpp(166,9): warning C4834: 放弃具有 "nodiscard" 属性的函数的返回值
-C:\Users\laptop\Desktop\LabExc-1-ass\DataStruct\main.cpp(216,31): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-C:\Users\laptop\Desktop\LabExc-1-ass\DataStruct\main.cpp(222,31): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\laptop\Desktop\LabExc-1-ass\DataStruct\main.cpp(167,9): warning C4834: 放弃具有 "nodiscard" 属性的函数的返回值
+C:\Users\laptop\Desktop\LabExc-1-ass\DataStruct\main.cpp(230,31): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\laptop\Desktop\LabExc-1-ass\DataStruct\main.cpp(243,31): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
