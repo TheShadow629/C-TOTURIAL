@@ -9,31 +9,31 @@ void testDateConstructor()
 {
 	// 测试 Date 的构造函数是否正常工作
 	Date d(2022, 2, 27);
-	assert(d.getYear() == 2022);
-	assert(d.getMonth() == 2);
-	assert(d.getDay() == 27);
+	assert(d.GetYear() == 2022);
+	assert(d.GetMonth() == 2);
+	assert(d.GetDay() == 27);
 }
 
 void testDateSettersAndGetters()
 {
 	// 测试 Date 的 setter 和 getter 方法是否正常工作
 	Date d;
-	d.setYear(2022);
-	assert(d.getYear() == 2022);
-	d.setMonth(12);
-	assert(d.getMonth() == 12);
-	d.setDay(31);
-	assert(d.getDay() == 31);
+	d.SetYear(2022);
+	assert(d.GetYear() == 2022);
+	d.SetMonth(12);
+	assert(d.GetMonth() == 12);
+	d.SetDay(31);
+	assert(d.GetDay() == 31);
 }
 
 void testDateSetDate()
 {
 	// 测试 Date 的 setDate 方法是否正常工作
 	Date d;
-	d.setDate("1/03/2014");
-	assert(d.getYear() == 2014);
-	assert(d.getMonth() == 3);
-	assert(d.getDay() == 1);
+	d.SetDate("1/03/2014");
+	assert(d.GetYear() == 2014);
+	assert(d.GetMonth() == 3);
+	assert(d.GetDay() == 1);
 }
 
 void testDateIO()
@@ -52,9 +52,9 @@ void testDateIO()
 		std::istringstream iss("2022 12 31");
 		Date date;
 		iss >> date;
-		assert(date.getDay() == 31);
-		assert(date.getMonth() == 12);
-		assert(date.getYear() == 2022);
+		assert(date.GetDay() == 31);
+		assert(date.GetMonth() == 12);
+		assert(date.GetYear() == 2022);
 		//assert means if the program satisfied () conditions, continue the next step, if false, stop the prograqm and threw the exception. 
 	}
 }
@@ -74,7 +74,7 @@ void testCalculateAve()
 	nums.Add(1.0);
 	nums.Add(2.0);
 	nums.Add(3.0);
-	assert(MathUtils::almostEqual(MathUtils::CalculateAve(nums), 2.0) == true);
+	assert(MathUtils::AlmostEqual(MathUtils::CalculateAve(nums), 2.0) == true);
 }
 
 void testCalculateStand()
@@ -83,31 +83,31 @@ void testCalculateStand()
 	nums.Add(1.0);
 	nums.Add(2.0);
 	nums.Add(3.0);
-	assert(MathUtils::almostEqual(MathUtils::CalculateStand(nums), 2.0) == true);
+	assert(MathUtils::AlmostEqual(MathUtils::CalculateStand(nums), 2.0) == true);
 }
 
  void testAlmostEqual()
  {
- 	assert(MathUtils::almostEqual(1.0, 1.0 + 0.000999999, 0.001) == true);
- 	assert(MathUtils::almostEqual(1.0, 1.0 + 0.001, 0.001) == false);
- 	assert(MathUtils::almostEqual(1.0, 1.0 + 0.000999, 0.001) == false);
+ 	assert(MathUtils::AlmostEqual(1.0, 1.0 + 0.000999999, 0.001) == true);
+ 	assert(MathUtils::AlmostEqual(1.0, 1.0 + 0.001, 0.001) == false);
+ 	assert(MathUtils::AlmostEqual(1.0, 1.0 + 0.000999, 0.001) == false);
  }
 
 void testGetMonthFromNum()
 {
-	assert(MathUtils::getMonthFromNum(1) == "January");
-	assert(MathUtils::getMonthFromNum(2) == "February");
-	assert(MathUtils::getMonthFromNum(3) == "March");
-	assert(MathUtils::getMonthFromNum(4) == "April");
-	assert(MathUtils::getMonthFromNum(5) == "May");
-	assert(MathUtils::getMonthFromNum(6) == "June");
-	assert(MathUtils::getMonthFromNum(7) == "July");
-	assert(MathUtils::getMonthFromNum(8) == "August");
-	assert(MathUtils::getMonthFromNum(9) == "September");
-	assert(MathUtils::getMonthFromNum(10) == "October");
-	assert(MathUtils::getMonthFromNum(11) == "November");
-	assert(MathUtils::getMonthFromNum(12) == "December");
-	assert(MathUtils::getMonthFromNum(13) == ""); // invalid month number
+	assert(MathUtils::GetMonthFromNum(1) == "January");
+	assert(MathUtils::GetMonthFromNum(2) == "February");
+	assert(MathUtils::GetMonthFromNum(3) == "March");
+	assert(MathUtils::GetMonthFromNum(4) == "April");
+	assert(MathUtils::GetMonthFromNum(5) == "May");
+	assert(MathUtils::GetMonthFromNum(6) == "June");
+	assert(MathUtils::GetMonthFromNum(7) == "July");
+	assert(MathUtils::GetMonthFromNum(8) == "August");
+	assert(MathUtils::GetMonthFromNum(9) == "September");
+	assert(MathUtils::GetMonthFromNum(10) == "October");
+	assert(MathUtils::GetMonthFromNum(11) == "November");
+	assert(MathUtils::GetMonthFromNum(12) == "December");
+	assert(MathUtils::GetMonthFromNum(13) == ""); // invalid month number
 }
 
 int testMathUtils()
@@ -123,8 +123,8 @@ void testSetDataSourcePath()
 {
 	UserSpace::MyVector<SLWDT> outData;
 	ReadFile rf(outData);
-	rf.setDataSourcePath("test.txt");
-	assert(rf.getDataSourcePath() == "test.txt");
+	rf.SetDataSourcePath("test.txt");
+	assert(rf.GetDataSourcePath() == "test.txt");
 }
 void testSetDataFilePaths()
 {
@@ -135,8 +135,8 @@ void testSetDataFilePaths()
 	paths.Add("file1.csv");
 	paths.Add("file2.csv");
 	paths.Add("file3.csv");
-	rf.setDataFilePaths(paths);
-	assert(rf.getDataFilePaths() == paths);
+	rf.SetDataFilePaths(paths);
+	assert(rf.GetDataFilePaths() == paths);
 }
 void testSetRawCsvData()
 {
@@ -150,8 +150,8 @@ void testSetRawCsvData()
 	tmp.Add("c");
 	data.Add(tmp);
 
-	rf.setRawCsvData(data);
-	assert(rf.getRawCsvData()[0] == data[0]);
+	rf.SetRawCsvData(data);
+	assert(rf.GetRawCsvData()[0] == data[0]);
 }
 
 void testSetColNames()
@@ -163,8 +163,8 @@ void testSetColNames()
 	colnames.Add("name");
 	colnames.Add("age");
 
-	rf.setColNames(colnames);
-	assert(rf.getColNames() == colnames);
+	rf.SetColNames(colnames);
+	assert(rf.GetColNames() == colnames);
 }
 
 void testSetDataWithoutHead()
@@ -175,25 +175,25 @@ void testSetDataWithoutHead()
 	UserSpace::MyVector<SLWDT> data;
 	SLWDT tmps;
 	string tmpp = "1/03/2014";
-	tmps.setDate(tmpp);
+	tmps.SetDate(tmpp);
 	tmpp = "9:00";
-	tmps.setTime(tmpp);
-	tmps.addData(12.5);
+	tmps.SetTime(tmpp);
+	tmps.AddData(12.5);
 	data.Add(tmps);
 
-	rf.setDataWithoutHead(data);
-	assert(!rf.getDataWithoutHead().Empty());
+	rf.SetDataWithoutHead(data);
+	assert(!rf.GetDataWithoutHead().Empty());
 }
 
 void testInitialize()
 {
 	UserSpace::MyVector<SLWDT> data;
 	ReadFile rf(data);
-	rf.initialize(data);
-	assert(!rf.getDataFilePaths().Empty());
-	assert(!rf.getRawCsvData().Empty());
-	assert(!rf.getColNames().Empty());
-	assert(!rf.getDataWithoutHead().Empty());
+	rf.Initialize(data);
+	assert(!rf.GetDataFilePaths().Empty());
+	assert(!rf.GetRawCsvData().Empty());
+	assert(!rf.GetColNames().Empty());
+	assert(!rf.GetDataWithoutHead().Empty());
 }
 
 void testGetColIndex()
@@ -206,17 +206,17 @@ void testGetColIndex()
 	colnames.Add("age");
 	colnames.Add("gender");
 
-	rf.setColNames(colnames);
-	assert(rf.getColIndex("name") == 0);
-	assert(rf.getColIndex("age") == 1);
-	assert(rf.getColIndex("gender") == 2);
+	rf.SetColNames(colnames);
+	assert(rf.GetColIndex("name") == 0);
+	assert(rf.GetColIndex("age") == 1);
+	assert(rf.GetColIndex("gender") == 2);
 }
 
 void testGetSpecificDataOfMonth()
 {
 	UserSpace::MyVector<SLWDT> data;
 	ReadFile rf(data);
-	UserSpace::MyVector<double> monthData = rf.getSpecificDataOfMonth(2014, 3, "T", false);
+	UserSpace::MyVector<double> monthData = rf.GetSpecificDataOfMonth(2014, 3, "T", false);
 	assert(!monthData.Empty());
 }
 
@@ -224,7 +224,7 @@ void testGetSpecificDataOfDay()
 {
 	UserSpace::MyVector<SLWDT> data;
 	ReadFile rf(data);
-	UserSpace::MyVector<double> dayData = rf.getSpecificDataOfDay(2014, 3, 1, "T");
+	UserSpace::MyVector<double> dayData = rf.GetSpecificDataOfDay(2014, 3, 1, "T");
 	assert(!dayData.Empty());
 }
 
@@ -245,30 +245,30 @@ int testReadFile()
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 void testSetDateAndGetDate()
 {
-	SingleLineWithDataAndTime slwdt;
+	StoreSingleLineData slwdt;
 	string dateStr = "1/03/2014";
-	slwdt.setDate(dateStr);
-	assert(slwdt.getDate().getYear() == 2014);
-	assert(slwdt.getDate().getMonth() == 3);
-	assert(slwdt.getDate().getDay() == 1);
+	slwdt.SetDate(dateStr);
+	assert(slwdt.GetDate().GetYear() == 2014);
+	assert(slwdt.GetDate().GetMonth() == 3);
+	assert(slwdt.GetDate().GetDay() == 1);
 }
 
 void testSetTimeAndGetTime()
 {
-	SingleLineWithDataAndTime slwdt;
+	StoreSingleLineData slwdt;
 	string timeStr = "9:00";
-	slwdt.setTime(timeStr);
-	assert(slwdt.getTime().getHour() == 9);
-	assert(slwdt.getTime().getMin() == 0);
+	slwdt.SetTime(timeStr);
+	assert(slwdt.GetTime().GetHour() == 9);
+	assert(slwdt.GetTime().GetMin() == 0);
 }
 
 void testAddDataAndGetSensorsData()
 {
-	SingleLineWithDataAndTime slwdt;
-	slwdt.addData(1.0);
-	slwdt.addData(2.0);
-	slwdt.addData(3.0);
-	UserSpace::MyVector<double> data = slwdt.getSensorsData();
+	StoreSingleLineData slwdt;
+	slwdt.AddData(1.0);
+	slwdt.AddData(2.0);
+	slwdt.AddData(3.0);
+	UserSpace::MyVector<double> data = slwdt.GetSensorsData();
 	assert(data.GetSize() == 3);
 	assert(data[0] == 1.0);
 	assert(data[1] == 2.0);
@@ -286,57 +286,57 @@ int testSingleLineWithDataAndTime()
 void testDefaultConstructor()
 {
 	Time t;
-	assert(t.getHour() == 0);
-	assert(t.getMin() == 0);
+	assert(t.GetHour() == 0);
+	assert(t.GetMin() == 0);
 }
 
 void testCustomConstructor()
 {
 	Time t(10, 30);
-	assert(t.getHour() == 10);
-	assert(t.getMin() == 30);
+	assert(t.GetHour() == 10);
+	assert(t.GetMin() == 30);
 }
 
 void testGetHour()
 {
 	Time t(9, 40);
-	assert(t.getHour() == 9);
+	assert(t.GetHour() == 9);
 }
 
 void testSetHour()
 {
 	Time t(15, 20);
-	t.setHour(16);
-	assert(t.getHour() == 16);
+	t.SetHour(16);
+	assert(t.GetHour() == 16);
 }
 
 void testGetMin()
 {
 	Time t(11, 45);
-	assert(t.getMin() == 45);
+	assert(t.GetMin() == 45);
 }
 
 void testSetMin()
 {
 	Time t(14, 50);
-	t.setMin(55);
-	assert(t.getMin() == 55);
+	t.SetMin(55);
+	assert(t.GetMin() == 55);
 }
 
 void testSetTime()
 {
 	Time t;
-	t.setTime(12, 30);
-	assert(t.getHour() == 12);
-	assert(t.getMin() == 30);
+	t.SetTime(12, 30);
+	assert(t.GetHour() == 12);
+	assert(t.GetMin() == 30);
 }
 
 void testSetTimeFromString()
 {
 	Time t;
-	t.setTime("09:30");
-	assert(t.getHour() == 9);
-	assert(t.getMin() == 30);
+	t.SetTime("09:30");
+	assert(t.GetHour() == 9);
+	assert(t.GetMin() == 30);
 }
 
 void testSetTimeFromStringIncorrectFormat()
@@ -344,7 +344,7 @@ void testSetTimeFromStringIncorrectFormat()
 	Time t;
 	try
 	{
-		t.setTime("9-30");
+		t.SetTime("9-30");
 	}
 	catch (const std::exception& e)
 	{
@@ -435,7 +435,6 @@ void TestMyVectorGetSize()
 	vec.Add(3);
 	assert(vec.GetSize() == 3);
 }
-
 
 template <class T>
 void TestMyVectorEmpty()

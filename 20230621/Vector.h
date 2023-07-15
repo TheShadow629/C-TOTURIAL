@@ -20,7 +20,7 @@ namespace UserSpace
 		MyVector& operator=(const MyVector& vec);
 		T& operator[](size_t index) const; 
 
-		T& GetPosition(size_t index) const;
+		//T& GetPosition(size_t index) const;
 		bool operator==(const MyVector& vec)const;
 		void Add(const value_type& val);
 		void Insert(iterator it, value_type val);
@@ -34,14 +34,12 @@ namespace UserSpace
 
 	};
 
-
-
-	template <class T>
-	T& UserSpace::MyVector<T>::GetPosition(size_t index) const
-	{
-		if (index < m_size)
-			return m_data[index];
-	}
+	//template <class T>
+	//T& UserSpace::MyVector<T>::GetPosition(size_t index) const
+	//{
+	//	if (index < m_size)
+	//		return m_data[index];
+	//}
 
 	template <class T>
 	MyVector<T>::MyVector()
@@ -54,10 +52,14 @@ namespace UserSpace
 	template <class T>
 	MyVector<T>::~MyVector()
 	{
-		delete[] m_data;
-		m_data = NULL;
-		m_size = 0;
-		m_capacity = 0;
+		if (m_data != NULL)
+			//avoid delete NULL;
+		{
+			delete[] m_data;
+			m_data = NULL;
+			m_size = 0;
+			m_capacity = 0;
+		}
 	}
 
 	template <class T>
@@ -112,7 +114,9 @@ namespace UserSpace
 	template<typename T>
 	void MyVector<T>::Add(const value_type& val)
 	{
-		if (0 == m_capacity) {
+		if(m_data==NULL)
+		//if (0 == m_capacity) 
+		{
 			m_capacity = 1;
 			m_data = new value_type[1];
 		}

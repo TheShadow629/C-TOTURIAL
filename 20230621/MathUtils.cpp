@@ -32,12 +32,12 @@ double MathUtils::CalculateStand(const UserSpace::MyVector<double>& inums)
     //sqrt(a) ;a^0.5
 }
 
- bool MathUtils::almostEqual(double d1, double d2, double tol) 
+ bool MathUtils::AlmostEqual(double d1, double d2, double tol) 
  {
      return fabs(d1 - d2) < tol;//fabs就是求绝对值
  }
 
-std::string MathUtils::getMonthFromNum(int m)
+std::string MathUtils::GetMonthFromNum(int m)
 {
     std::string months[] = { "Invalid month", "January", "February", "March",
                         "April", "May", "June", "July", "August",

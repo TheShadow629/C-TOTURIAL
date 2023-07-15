@@ -8,15 +8,15 @@ class Time
 public:
 	Time();
 	Time(int h,int m);
-	int getHour();
-	void setHour(int h);
-	int getMin();
-	void setMin(int m);
-	void setTime(int h, int m);
-	void setTime(std::string time);
+	int GetHour();
+	void SetHour(int h);
+	int GetMin();
+	void SetMin(int m);
+	void SetTime(int h, int m);
+	void SetTime(std::string time);
 
 private:
-	int hour;
-	int minute;
+	int m_hour;
+	int m_minute;
 };
 #endif // Time_h__

@@ -128,13 +128,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ConsoleApplication1.cpp" />
+    <ClCompile Include="intBst.cpp" />
     <ClCompile Include="LinkList.h" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BinarySearchTree.h" />
-    <ClInclude Include="BST.h" />
-    <ClInclude Include="DLinkList.h" />
+    <ClInclude Include="Bst.h" />
     <ClInclude Include="intBST.h" />
     <ClInclude Include="Queue.h" />
     <ClInclude Include="SeqList.h" />

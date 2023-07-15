@@ -2,46 +2,46 @@
 #include <sstream>
 Time::Time()
 {
-	hour = 0;
-	minute = 0;
+	m_hour = 0;
+	m_minute = 0;
 }
 
 Time::Time(int h, int m)
 {
-	hour = h;
-	minute = m;
+	m_hour = h;
+	m_minute = m;
 }
 
-int Time::getHour()
+int Time::GetHour()
 {
-	return hour;
+	return m_hour;
 }
-void Time::setHour(int h)
+void Time::SetHour(int h)
 {
-	hour = h;
+	m_hour = h;
 }
-int Time::getMin()
+int Time::GetMin()
 {
-	return minute;
+	return m_minute;
 }
-void Time::setMin(int m)
+void Time::SetMin(int m)
 {
-	minute = m;
+	m_minute = m;
 }
-void Time::setTime(int h, int m)
+void Time::SetTime(int h, int m)
 {
 	//minute = m;
 	//hour = h;
-	setMin(m);
-	setHour(h);
+	SetMin(m);
+	SetHour(h);
 }
 
-void Time::setTime(std::string time)
+void Time::SetTime(std::string time)
 {
 	std::string hour, minute;
 	std::stringstream singleTime(time);
 	getline(singleTime, hour, ':');
 	getline(singleTime, minute, ':');
-	setTime(atoi(hour.c_str()), atoi(minute.c_str()));
+	SetTime(atoi(hour.c_str()), atoi(minute.c_str()));
 }
 

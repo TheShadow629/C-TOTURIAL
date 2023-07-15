@@ -2,45 +2,45 @@
 #include "Date.h"
 Date::Date()
 {
-	setYear(0);
+	SetYear(0);
 }
 
 Date::Date(int y, int m, int d)//reload of function Date()
 {
-	setYear(y);
-	setMonth(m);
-	setDay(d);
+	SetYear(y);
+	SetMonth(m);
+	SetDay(d);
 }
 
-void Date::setYear(int y)
+void Date::SetYear(int y)
 {
-	year = y;
+	m_year = y;
 }
-int Date::getYear() const
+int Date::GetYear() const
 {
-	return year;
-}
-
-void Date::setMonth(int m)
-{
-	month = m;
-}
-int Date::getMonth() const
-{
-	return month;
+	return m_year;
 }
 
-
-void Date::setDay(int m)
+void Date::SetMonth(int m)
 {
-	day = m;
+	m_month = m;
 }
-int Date::getDay() const
+int Date::GetMonth() const
 {
-	return day;
+	return m_month;
 }
 
-void Date::setDate(string date)
+
+void Date::SetDay(int m)
+{
+	m_day = m;
+}
+int Date::GetDay() const
+{
+	return m_day;
+}
+
+void Date::SetDate(string date)
 {
 	string day, month, year;
 	stringstream singleDate(date);
@@ -48,9 +48,9 @@ void Date::setDate(string date)
 	getline(singleDate, month, '/');
 	getline(singleDate, year, '/');
 
-	setDay(atoi(day.c_str()));
-	setMonth(atoi(month.c_str()));
-	setYear(atoi(year.c_str()));
+	SetDay(atoi(day.c_str()));
+	SetMonth(atoi(month.c_str()));
+	SetYear(atoi(year.c_str()));
 }
 
 
@@ -59,45 +59,17 @@ ostream& operator <<(ostream& os, const Date& C)
 	std::string months[] = { "Invalid month", "January", "February", "March",
 						"April", "May", "June", "July", "August",
 						"September", "October", "November", "December" };
-	os << C.getDay() << " " << months[C.getMonth()] << " " << C.getYear() << endl;
+	os << C.GetDay() << " " << months[C.GetMonth()] << " " << C.GetYear() << endl;
 	return os;
 }
 istream& operator >>(istream& input, Date& C)
 {
 	int  y, m, d;
 	input >> y >> m >> d;
-	C.setYear(y);
-	C.setMonth(m);
-	C.setDay(d);
+	C.SetYear(y);
+	C.SetMonth(m);
+	C.SetDay(d);
 	return input;
 }
-//Date time1=Date();
-//Date time2 = Date(2023,5,21);
-// 
-//bool compareNum()
-//{
-//	return 1;
-//}
-//
-//bool compareNum(int a=0, int b=0)
-//{
-//	return a > b;
-//}
-//bool res=compareNum();
-//
-//bool compareNum(float a, float b)
-//{
-//	return a > b;
-//}
-//
-//bool compareNum(char a, char b)
-//{
-//	return a > b;
-//}
-//
-//bool compareNum(char a, char b,char c)
-//{
-//	return a > b;
-//}
 
 

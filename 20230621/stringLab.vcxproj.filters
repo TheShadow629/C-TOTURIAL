@@ -42,10 +42,16 @@
     <ClCompile Include="MathUtils.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="SingleLineWithDataAndTime.cpp">
+    <ClCompile Include="StoreSingleLineData.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="TEST.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="intBst.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="mainForLab8And9.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -59,7 +65,16 @@
     <ClInclude Include="MathUtils.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="SingleLineWithDataAndTime.h">
+    <ClInclude Include="StoreSingleLineData.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Bst.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="intBST.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="mainForLab8AndLab9.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

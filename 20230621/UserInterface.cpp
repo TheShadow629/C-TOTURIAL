@@ -13,12 +13,12 @@ int UserInterface::Function1( ReadFile& f1) {
 	//ReadFile f1;
 	//f1.initialize();
 
-	UserSpace::MyVector<double> result = f1.getSpecificDataOfMonth(year, month, "S", true);
+	UserSpace::MyVector<double> result = f1.GetSpecificDataOfMonth(year, month, "S", true);
 	double ave = 0, stdev = 0;
 	ave = MathUtils::CalculateAve(result);
 	stdev = MathUtils::CalculateStand(result);
 
-	std::cout << endl << MathUtils::getMonthFromNum(month) << " " << year << ":";
+	std::cout << endl << MathUtils::GetMonthFromNum(month) << " " << year << ":";
 
 	if (result.GetSize() > 0)
 	{
@@ -45,11 +45,11 @@ int UserInterface::Function2(ReadFile& f1) {
 	cout << endl << year << endl;
 	for (int i = 1; i < 13; i++)
 	{
-		UserSpace::MyVector<double> result = f1.getSpecificDataOfMonth(year, i, "T", true);
+		UserSpace::MyVector<double> result = f1.GetSpecificDataOfMonth(year, i, "T", true);
 		double ave = 0, stdev = 0;
 		ave = MathUtils::CalculateAve(result);
 		stdev = MathUtils::CalculateStand(result);
-		cout << MathUtils::getMonthFromNum(i) << ": ";
+		cout << MathUtils::GetMonthFromNum(i) << ": ";
 		if (result.GetSize() > 0)
 		{
 			cout << "average: " << setiosflags(ios::fixed) << setprecision(1) << ave
@@ -74,9 +74,9 @@ int UserInterface::Function3(ReadFile& f1) {
 
 	for (int i = 1; i < 13; i++)
 	{
-		UserSpace::MyVector<double> result = f1.getSpecificDataOfMonth(year, i, "SR", false);
+		UserSpace::MyVector<double> result = f1.GetSpecificDataOfMonth(year, i, "SR", false);
 		double sum = 0;
-		cout << MathUtils::getMonthFromNum(i) << ": ";
+		cout << MathUtils::GetMonthFromNum(i) << ": ";
 		if (result.GetSize() > 0)
 		{
 			for (int i = 0; i < result.GetSize(); i++)
@@ -112,23 +112,23 @@ int UserInterface::Function4(ReadFile& f1) {
 
 	for (int i = 1; i < 13; i++)
 	{
-		UserSpace::MyVector<double> result = f1.getSpecificDataOfMonth(year, i, "S", true);
+		UserSpace::MyVector<double> result = f1.GetSpecificDataOfMonth(year, i, "S", true);
 		double ave = MathUtils::CalculateAve(result);
 		double stdev = MathUtils::CalculateStand(result);
 		if (result.GetSize() != 0)
 		{
-			file << MathUtils::getMonthFromNum(i)
+			file << MathUtils::GetMonthFromNum(i)
 				<< "," << setiosflags(ios::fixed) << setprecision(1) << ave
 				<< "(" << setiosflags(ios::fixed) << setprecision(1) << stdev << ")";
 		}
 		else
 		{
-			file << MathUtils::getMonthFromNum(i)
+			file << MathUtils::GetMonthFromNum(i)
 				<< ",";
 		}
 
 
-		result = f1.getSpecificDataOfMonth(year, i, "T", true);
+		result = f1.GetSpecificDataOfMonth(year, i, "T", true);
 		ave = MathUtils::CalculateAve(result);
 		stdev = MathUtils::CalculateStand(result);
 		if (result.GetSize() != 0)
@@ -142,7 +142,7 @@ int UserInterface::Function4(ReadFile& f1) {
 			file << ",";
 		}
 
-		result = f1.getSpecificDataOfMonth(year, i, "SR", false);
+		result = f1.GetSpecificDataOfMonth(year, i, "SR", false);
 		double sum = 0;
 		for (int i = 0; i < result.GetSize(); i++)
 		{

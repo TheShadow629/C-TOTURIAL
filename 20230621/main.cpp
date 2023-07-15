@@ -1,7 +1,10 @@
+#include "mainForLab8AndLab9.h"
 #include "UserInterface.h"
 
 int main()
 {
+	mainForLab8AndLab9();
+
 	UserSpace::MyVector<SLWDT> v1;
 	ReadFile f1(v1);
 
@@ -45,27 +48,5 @@ int main()
 	return 0;
 
 }
-//
-//int fun1()
-//{
-//	int i = 10;
-//	string s1 = "hello";
-//	return i;
-//	return s1;
-//
-//}
-//int num = fun1();
-//
-//void fun2(int& oRes,string& oStr)
-//{
-//	cout << oStr;
-//	string s1 = "hello";
-//	oStr = s1;
-//	int i = 10;
-//	oRes = i;
-//}
-//
-//int num;
-//string mystring="world";
-//fun2(num, mystring);
+
 

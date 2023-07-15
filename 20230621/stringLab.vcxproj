@@ -128,11 +128,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Date.cpp" />
+    <ClCompile Include="intBst.cpp" />
+    <ClCompile Include="mainForLab8And9.cpp" />
     <ClCompile Include="MathUtils.cpp" />
     <ClCompile Include="ReadFile.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ReadFile.h" />
-    <ClCompile Include="SingleLineWithDataAndTime.cpp" />
+    <ClCompile Include="StoreSingleLineData.cpp" />
     <ClCompile Include="TEST.cpp" />
     <ClCompile Include="Time.cpp" />
     <ClCompile Include="Time.h" />
@@ -140,9 +142,12 @@
     <ClCompile Include="Vector.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Bst.h" />
     <ClInclude Include="Date.h" />
+    <ClInclude Include="intBST.h" />
+    <ClInclude Include="mainForLab8AndLab9.h" />
     <ClInclude Include="MathUtils.h" />
-    <ClInclude Include="SingleLineWithDataAndTime.h" />
+    <ClInclude Include="StoreSingleLineData.h" />
     <ClInclude Include="UserInterface.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -7,6 +7,10 @@
 #include <set>
 #include <map> 
 
+#include "Bst.h"
+#include "intBST.h"
+
+
 using namespace std;
 
 int SeqListTest()
@@ -252,6 +256,14 @@ int MapTest()
 	return 0;
 }
 
+void intBSTTEST()
+{
+	Bst<int> myTempletBst;
+	//myTempletBst.Insert();
+
+
+
+}
 int main(int argc, char** argv)
 {
 	//LinkListTest();
