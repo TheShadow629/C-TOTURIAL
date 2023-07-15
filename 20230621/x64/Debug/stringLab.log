@@ -1,9 +1,69 @@
-﻿  ReadFile.cpp
-C:\Users\laptop\Desktop\LabExc-1-ass\20230621\Vector.h(186,10): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+﻿  Date.cpp
+  intBst.cpp
+  mainForLab8And9.cpp
+C:\Users\laptop\Desktop\LabExc-1-ass\20230621\Bst.h(43,1): warning C4812: 过时的声明样式: 请改用“Bst<T>::Bst”
+C:\Users\laptop\Desktop\LabExc-1-ass\20230621\Vector.h(186,1): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\laptop\Desktop\LabExc-1-ass\20230621\Vector.h(185,2): message : 在编译 类 模板 成员函数“int UserSpace::MyVector<SLWDT>::GetSize(void) const”时
+C:\Users\laptop\Desktop\LabExc-1-ass\20230621\mainForLab8And9.cpp(56,2): message : 查看对正在编译的函数 模板 实例化“int UserSpace::MyVector<SLWDT>::GetSize(void) const”的引用
+C:\Users\laptop\Desktop\LabExc-1-ass\20230621\ReadFile.h(28,28): message : 查看对正在编译的 类 模板 实例化“UserSpace::MyVector<SLWDT>”的引用
+C:\Users\laptop\Desktop\LabExc-1-ass\20230621\Bst.h(43,1): warning C4812: 过时的声明样式: 请改用“Bst<Date>::Bst”
+C:\Users\laptop\Desktop\LabExc-1-ass\20230621\Bst.h(44,1): message : 在编译 类 模板 成员函数“Bst<Date>::Bst(T)”时
+          with
+          [
+              T=Date
+          ]
+C:\Users\laptop\Desktop\LabExc-1-ass\20230621\mainForLab8And9.cpp(55,12): message : 查看对正在编译的函数 模板 实例化“Bst<Date>::Bst(T)”的引用
+          with
+          [
+              T=Date
+          ]
+C:\Users\laptop\Desktop\LabExc-1-ass\20230621\mainForLab8And9.cpp(55,29): message : 查看对正在编译的 类 模板 实例化“Bst<Date>”的引用
+  MathUtils.cpp
+C:\Users\laptop\Desktop\LabExc-1-ass\20230621\Vector.h(186,1): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
 C:\Users\laptop\Desktop\LabExc-1-ass\20230621\Vector.h(185,2): message : 在编译 类 模板 成员函数“int UserSpace::MyVector<double>::GetSize(void) const”时
-C:\Users\laptop\Desktop\LabExc-1-ass\20230621\ReadFile.cpp(134,4): message : 请参阅 "ReadFile::Initialize" 中对 "UserSpace::MyVector<double>::GetSize" 的第一个引用
+C:\Users\laptop\Desktop\LabExc-1-ass\20230621\MathUtils.cpp(8,5): message : 查看对正在编译的函数 模板 实例化“int UserSpace::MyVector<double>::GetSize(void) const”的引用
+C:\Users\laptop\Desktop\LabExc-1-ass\20230621\MathUtils.cpp(8): message : 查看对正在编译的 类 模板 实例化“UserSpace::MyVector<double>”的引用
+  ReadFile.cpp
+C:\Users\laptop\Desktop\LabExc-1-ass\20230621\Vector.h(186,1): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\laptop\Desktop\LabExc-1-ass\20230621\Vector.h(185,2): message : 在编译 类 模板 成员函数“int UserSpace::MyVector<double>::GetSize(void) const”时
+C:\Users\laptop\Desktop\LabExc-1-ass\20230621\ReadFile.cpp(134,4): message : 查看对正在编译的函数 模板 实例化“int UserSpace::MyVector<double>::GetSize(void) const”的引用
 C:\Users\laptop\Desktop\LabExc-1-ass\20230621\StoreSingleLineData.h(22,30): message : 查看对正在编译的 类 模板 实例化“UserSpace::MyVector<double>”的引用
+  main.cpp
+C:\Users\laptop\Desktop\LabExc-1-ass\20230621\Bst.h(43,1): warning C4812: 过时的声明样式: 请改用“Bst<T>::Bst”
+  ReadFile.h
+  StoreSingleLineData.cpp
+  TEST.cpp
+C:\Users\laptop\Desktop\LabExc-1-ass\20230621\Vector.h(186,1): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\laptop\Desktop\LabExc-1-ass\20230621\Vector.h(185,2): message : 在编译 类 模板 成员函数“int UserSpace::MyVector<double>::GetSize(void) const”时
+C:\Users\laptop\Desktop\LabExc-1-ass\20230621\TEST.cpp(272,2): message : 查看对正在编译的函数 模板 实例化“int UserSpace::MyVector<double>::GetSize(void) const”的引用
+C:\Users\laptop\Desktop\LabExc-1-ass\20230621\StoreSingleLineData.h(22,30): message : 查看对正在编译的 类 模板 实例化“UserSpace::MyVector<double>”的引用
+C:\Users\laptop\Desktop\LabExc-1-ass\20230621\Vector.h(140,13): warning C4244: “初始化”: 从“__int64”转换到“int”，可能丢失数据
+C:\Users\laptop\Desktop\LabExc-1-ass\20230621\Vector.h(139,56): message : 在编译 类 模板 成员函数“void UserSpace::MyVector<int>::Insert(int *,int)”时
+C:\Users\laptop\Desktop\LabExc-1-ass\20230621\TEST.cpp(400,12): message : 查看对正在编译的函数 模板 实例化“void UserSpace::MyVector<int>::Insert(int *,int)”的引用
+C:\Users\laptop\Desktop\LabExc-1-ass\20230621\TEST.cpp(378): message : 查看对正在编译的 类 模板 实例化“UserSpace::MyVector<int>”的引用
+C:\Users\laptop\Desktop\LabExc-1-ass\20230621\TEST.cpp(450,31): message : 查看对正在编译的函数 模板 实例化“void TestMyVectorConstructor<int>(void)”的引用
+C:\Users\laptop\Desktop\LabExc-1-ass\20230621\Vector.h(160,1): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\laptop\Desktop\LabExc-1-ass\20230621\Vector.h(177,1): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\laptop\Desktop\LabExc-1-ass\20230621\Vector.h(175,48): message : 在编译 类 模板 成员函数“void UserSpace::MyVector<int>::DeletePosition(int *)”时
+C:\Users\laptop\Desktop\LabExc-1-ass\20230621\TEST.cpp(423,20): message : 查看对正在编译的函数 模板 实例化“void UserSpace::MyVector<int>::DeletePosition(int *)”的引用
+  Time.cpp
+  Time.h
+  UserInterface.cpp
+C:\Users\laptop\Desktop\LabExc-1-ass\20230621\Vector.h(186,1): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\laptop\Desktop\LabExc-1-ass\20230621\Vector.h(185,2): message : 在编译 类 模板 成员函数“int UserSpace::MyVector<double>::GetSize(void) const”时
+C:\Users\laptop\Desktop\LabExc-1-ass\20230621\UserInterface.cpp(23,2): message : 查看对正在编译的函数 模板 实例化“int UserSpace::MyVector<double>::GetSize(void) const”的引用
+C:\Users\laptop\Desktop\LabExc-1-ass\20230621\StoreSingleLineData.h(22,30): message : 查看对正在编译的 类 模板 实例化“UserSpace::MyVector<double>”的引用
+  Vector.h
+  正在生成代码...
+C:\Users\laptop\Desktop\LabExc-1-ass\20230621\Vector.h(99): warning C4715: “UserSpace::MyVector<double>::operator[]”: 不是所有的控件路径都返回值
+C:\Users\laptop\Desktop\LabExc-1-ass\20230621\Vector.h(99): warning C4715: “UserSpace::MyVector<UserSpace::MyVector<std::basic_string<char,std::char_traits<char>,std::allocator<char> > > >::operator[]”: 不是所有的控件路径都返回值
+C:\Users\laptop\Desktop\LabExc-1-ass\20230621\Vector.h(99): warning C4715: “UserSpace::MyVector<double>::operator[]”: 不是所有的控件路径都返回值
+C:\Users\laptop\Desktop\LabExc-1-ass\20230621\Vector.h(99): warning C4715: “UserSpace::MyVector<int>::operator[]”: 不是所有的控件路径都返回值
 C:\Users\laptop\Desktop\LabExc-1-ass\20230621\Vector.h(99): warning C4715: “UserSpace::MyVector<std::basic_string<char,std::char_traits<char>,std::allocator<char> > >::operator[]”: 不是所有的控件路径都返回值
+C:\Users\laptop\Desktop\LabExc-1-ass\20230621\Vector.h(99): warning C4715: “UserSpace::MyVector<double>::operator[]”: 不是所有的控件路径都返回值
 C:\Users\laptop\Desktop\LabExc-1-ass\20230621\Vector.h(99): warning C4715: “UserSpace::MyVector<StoreSingleLineData>::operator[]”: 不是所有的控件路径都返回值
 C:\Users\laptop\Desktop\LabExc-1-ass\20230621\Vector.h(99): warning C4715: “UserSpace::MyVector<double>::operator[]”: 不是所有的控件路径都返回值
+C:\Users\laptop\Desktop\LabExc-1-ass\20230621\Vector.h(99): warning C4715: “UserSpace::MyVector<StoreSingleLineData>::operator[]”: 不是所有的控件路径都返回值
+x64\Debug\ReadFile.obj : warning LNK4042: 对象被多次指定；已忽略多余的指定
+x64\Debug\Time.obj : warning LNK4042: 对象被多次指定；已忽略多余的指定
   stringLab.vcxproj -> C:\Users\laptop\Desktop\LabExc-1-ass\20230621\x64\Debug\stringLab.exe

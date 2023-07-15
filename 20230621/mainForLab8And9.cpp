@@ -59,6 +59,6 @@ int mainForLab8AndLab9()
 	}
 
 	dateTree.InOrderTraversal(dateTree.GetTree());
-
+	dateTree.DeleteTree(dateTree.GetTree());
 	return 0;
 }

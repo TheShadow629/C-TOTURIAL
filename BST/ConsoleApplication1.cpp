@@ -39,14 +39,7 @@ void intBstTest()
 		std::cout << "NOTFOUND" << std::endl;
 
 	myIntBst.DeleteTree(myIntBst.GetTree());
-	//intBST();
-	//TNode* Insert(TNode * BST, int X);
-	//TNode* DeleteTree(TNode * BST);
-	//TNode* Find(int X, TNode * BST);
 
-	//void InOrderTraversal(TNode * BST);
-	//void PreOrderTraversal(TNode * BST);
-	//void PostOrderTraversal(TNode * BST);
 }
 
 void templetBstTest()
@@ -88,7 +81,7 @@ void templetBstTest()
 int main()
 {
 	intBstTest();
-	//templetBstTest();
+	templetBstTest();
 	return 0;
 }
 

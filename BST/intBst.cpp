@@ -56,8 +56,14 @@ bool intBST::DeleteTree(TNode* BST)
 
 TNode* intBST::Find(int X, TNode* BST)
 {
-	if (!BST) return NULL; /*²éÕÒÊ§°Ü*/
+	if (BST == NULL)
+		return NULL; /*²éÕÒÊ§°Ü*/
 	if (X > BST->GetData())
+	//{
+	//	TNode* res;
+	//	res = Find(X, BST->Right);
+	//	return res;
+	//}
 		return Find(X, BST->Right);
 	else if (X < BST->GetData())
 		return Find(X, BST->Left);
@@ -68,10 +74,11 @@ TNode* intBST::Find(int X, TNode* BST)
 void intBST::InOrderTraversal(TNode* BST)
 {
 	if (BST == NULL) {
-		return;
+		return  ;
 	}
 	else {
 		InOrderTraversal(BST->Left);
+		//processData();
 		std::cout << BST->GetData() << "  ";
 		InOrderTraversal(BST->Right);
 	}
