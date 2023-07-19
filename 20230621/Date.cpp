@@ -72,4 +72,50 @@ istream& operator >>(istream& input, Date& C)
 	return input;
 }
 
+bool operator>(const Date& lhs, const Date& rhs)
+{
+	if (lhs.GetYear() > rhs.GetYear())
+	{
+		return true;
+	}
+	else if (lhs.GetYear() == rhs.GetYear())
+	{
+		if (lhs.GetMonth() > rhs.GetMonth())
+		{
+			return true;
+		}
+		else if (lhs.GetMonth() == rhs.GetMonth())
+		{
+			if (lhs.GetDay() > rhs.GetDay())
+			{
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
+bool operator<(const Date& lhs, const Date& rhs)
+{
+	if (lhs.GetYear() < rhs.GetYear())
+	{
+		return true;
+	}
+	else if (lhs.GetYear() == rhs.GetYear())
+	{
+		if (lhs.GetMonth() < rhs.GetMonth())
+		{
+			return true;
+		}
+		else if (lhs.GetMonth() == rhs.GetMonth())
+		{
+			if (lhs.GetDay() < rhs.GetDay())
+			{
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
 

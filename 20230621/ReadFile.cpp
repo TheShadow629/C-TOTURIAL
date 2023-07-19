@@ -18,13 +18,13 @@ UserSpace::MyVector<string> ReadFile::GetDataFilePaths() const {
 	return m_DataFilePaths;
 }
 
-void ReadFile::SetRawCsvData(UserSpace::MyVector<UserSpace::MyVector<string>> data) {
-	m_RawCsvData = data;
-}
+//void ReadFile::SetRawCsvData(UserSpace::MyVector<UserSpace::MyVector<string>> data) {
+//	m_RawCsvData = data;
+//}
 
-UserSpace::MyVector<UserSpace::MyVector<string>> ReadFile::GetRawCsvData() const {
-	return m_RawCsvData;
-}
+//UserSpace::MyVector<UserSpace::MyVector<string>> ReadFile::GetRawCsvData() const {
+//	return m_RawCsvData;
+//}
 
 void ReadFile::SetColNames(UserSpace::MyVector<string> colnames) {
 	m_ColNames = colnames;
@@ -34,21 +34,21 @@ UserSpace::MyVector<string> ReadFile::GetColNames() const {
 	return m_ColNames;
 }
 
-void ReadFile::SetDataWithoutHead(UserSpace::MyVector<SLWDT> data) {
-	m_DataWithoutHead = data;
-}
+//void ReadFile::SetDataWithoutHead(UserSpace::MyVector<SLWDT> data) {
+//	m_DataWithoutHead = data;
+//}
+//
+//UserSpace::MyVector<SLWDT> ReadFile::GetDataWithoutHead() const {
+//	return m_DataWithoutHead;
+//}
 
-UserSpace::MyVector<SLWDT> ReadFile::GetDataWithoutHead() const {
-	return m_DataWithoutHead;
-}
-
-ReadFile::ReadFile(UserSpace::MyVector<SLWDT>& outData, string source)
+ReadFile::ReadFile(std::multimap <Date, SLWDT>& outData, string source)
 {
 	m_DataSourcePath = source;//datasource:txt filename
 	Initialize(outData);
 }
 
-void ReadFile::Initialize(UserSpace::MyVector<SLWDT>& outData)
+void ReadFile::Initialize(std::multimap <Date, SLWDT>& outData)
 {
 	ifstream inFile(m_DataSourcePath, ios::in);
 	string lineStr;
@@ -66,9 +66,9 @@ void ReadFile::Initialize(UserSpace::MyVector<SLWDT>& outData)
 		stringstream ss(allColName);//stringstream can divide by the ',',so we need save the information into ss.
 		string colName;
 
-		UserSpace::MyVector<string> preColNames;
-		if (m_ColNames.GetSize() > 0)//说明前面已经读取过至少一个文件
-			preColNames = m_ColNames;
+		//UserSpace::MyVector<string> preColNames;
+		//if (m_ColNames.GetSize() > 0)//说明前面已经读取过至少一个文件
+		//	preColNames = m_ColNames;
 
 		UserSpace::MyVector<string> New_m_ColNames;
 		while (getline(ss, colName, ','))//split the head information by',', and add in add m_colnames one by one.
@@ -99,84 +99,113 @@ void ReadFile::Initialize(UserSpace::MyVector<SLWDT>& outData)
 			sld.SetDate(date);//save the date variable into sld class.
 			sld.SetTime(time);//same as above.//sld.settime
 
-			if (preColNames.GetSize() > 0)//说明前面已经读取过至少一个文件
+			if (sld.GetDate().GetYear() != 0)//为了过滤空行
 			{
-				for (int k = 1; k < preColNames.GetSize(); k++)
+				for (int k = 1; k < lineArray.GetSize(); k++)
 				{
-					int colIndex = GetColIndex(preColNames[k]) + 1;
-					try {
-						//为了过滤"N/A"和空行的情况)
-						if (colIndex < lineArray.GetSize())
-							sld.AddData(std::stod((lineArray[colIndex]).c_str()));
-						else
-							continue;
+					try//为了过滤NA数据,使用tryCatch过滤错误数据
+					{
+						sld.AddData(pair<string, double>(m_ColNames[k], std::stod(lineArray[k])));
 					}
-					catch (std::invalid_argument&) {
-						//cout << "Invalid_argument" << endl;
-					}
-					catch (std::out_of_range&) {
-						//cout << "Out of range" << endl;
-					}
-					catch (...) {
+					catch (...)
+					{
 						//cout << "Something else" << endl;
 					}
 				}
+				//m_DataWithoutHead.Add(sld);//save into member variable,m_datawithouthead,cause sld is local variable, it ends when the loop end, one time variable.  
+				//outData.Add(sld);//return the useless, the lecture asked outdata.
+				//m_MapDataWithoutHead[sld.GetDate()]= sld;
+				m_MapDataWithoutHead.insert(std::pair<Date, SLWDT>(sld.GetDate(), sld));
+				outData.insert(std::pair<Date, SLWDT>(sld.GetDate(), sld));
 			}
-			else
-			{
-				//首次读文件，即读入第一个文件
-				for (int k = 1; k < lineArray.GetSize(); k++)
-				{
-					sld.AddData(std::stod((lineArray[k]).c_str()));//read one line from the second data(except the date and time), and save in sld.
-				}
-			}
-			//为了过滤空行的情况
-			if (sld.GetSensorsData().GetSize() < m_ColNames.GetSize() - 1)
-				continue;
-
-			m_DataWithoutHead.Add(sld);//save into member variable,m_datawithouthead,cause sld is local variable, it ends when the loop end, one time variable.  
-			outData.Add(sld);//return the useless, the lecture asked outdata.
+			//if (preColNames.GetSize() > 0)//说明前面已经读取过至少一个文件
+			//{
+			//	for (int k = 1; k < preColNames.GetSize(); k++)
+			//	{
+			//		int colIndex = GetColIndex(preColNames[k]) + 1;
+			//		try {
+			//			//为了过滤"N/A"和空行的情况)
+			//			if (colIndex < lineArray.GetSize())
+			//				sld.AddData(std::stod((lineArray[colIndex]).c_str()));
+			//			else
+			//				continue;
+			//		}
+			//		catch (std::invalid_argument&) {
+			//			//cout << "Invalid_argument" << endl;
+			//		}
+			//		catch (std::out_of_range&) {
+			//			//cout << "Out of range" << endl;
+			//		}
+			//		catch (...) {
+			//			//cout << "Something else" << endl;
+			//		}
+			//	}
+			//}
+			//else
+			//{
+			//	//首次读文件，即读入第一个文件
+			//	for (int k = 1; k < lineArray.GetSize(); k++)
+			//	{
+			//		sld.AddData(std::stod((lineArray[k]).c_str()));//read one line from the second data(except the date and time), and save in sld.
+			//	}
+			//}
+			////为了过滤空行的情况
+			//if (sld.GetSensorsData().GetSize() < m_ColNames.GetSize() - 1)
+			//	continue;
 		}
-		if (preColNames.GetSize() > 0)
-			m_ColNames = preColNames;//恢复m_ColNames的内容，如此可以保证所有文件的数据顺序都按照第一个文件的表头顺序存储
+		//if (preColNames.GetSize() > 0)
+		//	m_ColNames = preColNames;//恢复m_ColNames的内容，如此可以保证所有文件的数据顺序都按照第一个文件的表头顺序存储
 	}
 	//outData = m_DataWithoutHead;
 }
-//m_DataWithoutHead[j].sensorsData[getColIndex("EV")]
 
-int ReadFile::GetColIndex(string colName)
-//得到colName在m_DataWithoutHead[j].sensorsData中的下标
-{
-	int index = 0;
-	for (int i = 0; i < m_ColNames.GetSize(); i++)//search the matched head one by one, and give the index to the index variable.
-	{
-		if (colName == m_ColNames[i])
-		{
-			index = i;
-			break;
-		}
-	}
-	return index - 1;//if find the matched value, casue m_headwithoutdata(type SLWD,also saved in slwdt,so it means save in the sesor data.) saved the value except data and time,so if we want to find the colname, we need to minus 1,minus the data one. if can't find,return -1
-}
-
+//int ReadFile::GetColIndex(string colName)
+////得到colName在m_DataWithoutHead[j].sensorsData中的下标
+//{
+//	int index = 0;
+//	for (int i = 0; i < m_ColNames.GetSize(); i++)//search the matched head one by one, and give the index to the index variable.
+//	{
+//		if (colName == m_ColNames[i])
+//		{
+//			index = i;
+//			break;
+//		}
+//	}
+//	return index - 1;//if find the matched value, casue m_headwithoutdata(type SLWD,also saved in slwdt,so it means save in the sesor data.) saved the value except data and time,so if we want to find the colname, we need to minus 1,minus the data one. if can't find,return -1
+//}
 
 UserSpace::MyVector<double> ReadFile::GetSpecificDataOfDay(int year, int month, int day, string colName)
 {
 	UserSpace::MyVector<double> result;
 	double sum = 0;
 	int count = 0;
-	for (int i = 0; i < m_DataWithoutHead.GetSize(); i++)
+
+	Date d(year, month, day);
+	auto iter1 = m_MapDataWithoutHead.lower_bound(d);
+	auto iter2 = m_MapDataWithoutHead.upper_bound(d);
+
+	if (iter1 != std::end(m_MapDataWithoutHead))
 	{
-		if ((m_DataWithoutHead[i].GetDate().GetYear() == year) &&
-			(m_DataWithoutHead[i].GetDate().GetMonth() == month) &&
-			(m_DataWithoutHead[i].GetDate().GetDay() == day))
-			//judge if date of m_DataWithoutHead[i] matches the para list-(year,month,day)
+		for (auto iter = iter1; iter != iter2; ++iter)
 		{
-			sum += m_DataWithoutHead[i].GetSensorsData()[GetColIndex(colName)];//save everthing without head in the m_datawithouthead, and the type is slwdt, so if wanna use date, involk the getdate method,if wanna use data without date, involk the sensor data.
-			//find the matched data by using index.
-			count++;//how many times we get the data, using to cal the aver.
+			sum += iter->second.GetMapSensorsData()[colName];
+			count++;
 		}
 	}
+	//for (int i = 0; i < m_DataWithoutHead.GetSize(); i++)
+	//{
+	//	if ((m_DataWithoutHead[i].GetDate().GetYear() == year) &&
+	//		(m_DataWithoutHead[i].GetDate().GetMonth() == month) &&
+	//		(m_DataWithoutHead[i].GetDate().GetDay() == day))
+	//		//judge if date of m_DataWithoutHead[i] matches the para list-(year,month,day)
+	//	{
+	//		//sum += m_DataWithoutHead[i].GetSensorsData()[GetColIndex(colName)];//save everthing without head in the m_datawithouthead, and the type is slwdt, so if wanna use date, involk the getdate method,if wanna use data without date, involk the sensor data.
+	//		//find the matched data by using index.
+	//		sum += m_DataWithoutHead[i].GetMapSensorsData()[colName];
+	//		//save everthing without head in the m_datawithouthead, and the type is slwdt, so if wanna use date, involk the getdate method,if wanna use data without date, involk the sensor data.
+	//		count++;//how many times we get the data, using to cal the aver.
+	//	}
+	//}
 	if (count != 0)
 	{
 		result.Add(sum);
@@ -186,7 +215,6 @@ UserSpace::MyVector<double> ReadFile::GetSpecificDataOfDay(int year, int month, 
 	return result;//如果没有符合日期的数据则result为空
 	//return to get specific data of day method.
 }
-
 
 UserSpace::MyVector<double> ReadFile::GetSpecificDataOfMonth(int year, int month, string colName, bool flag)
 {

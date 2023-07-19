@@ -2,7 +2,6 @@
 #include <iostream>
 #include <cstdlib>
 
-
 class TNode { /* 树结点定义 */
 	friend class intBST;
 public:
@@ -12,7 +11,6 @@ private:
 	TNode* Left;     /* 指向左子树 */
 	TNode* Right;    /* 指向右子树 */
 };
-
 
 
 class intBST

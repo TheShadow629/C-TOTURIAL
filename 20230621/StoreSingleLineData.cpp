@@ -5,7 +5,7 @@ void StoreSingleLineData::SetDate(string& d)////1.readfile save date save in the
 	m_d.SetDate(d);
 }
 
-Date StoreSingleLineData::GetDate()
+Date StoreSingleLineData::GetDate() const
 {
 	return m_d;
 }
@@ -20,12 +20,33 @@ Time StoreSingleLineData::GetTime()
 	return m_t;
 }
 
-void StoreSingleLineData::AddData(const double& n)
+//void StoreSingleLineData::AddData(const double& n)
+//{
+//	m_SensorsData.Add(n);
+//}
+
+void StoreSingleLineData::AddData(const std::pair<std::string, double>& d)
 {
-	m_SensorsData.Add(n);
+	m_MapSensorsData.insert(d);
 }
 
-UserSpace::MyVector<double>& StoreSingleLineData::GetSensorsData()
+//UserSpace::MyVector<double>& StoreSingleLineData::GetSensorsData()
+//{
+//	return m_SensorsData;
+//}
+
+std::map<std::string, double>& StoreSingleLineData::GetMapSensorsData()
 {
-	return m_SensorsData;
+	return m_MapSensorsData;
+}
+
+bool operator>(const StoreSingleLineData& lhs, const StoreSingleLineData& rhs) 
+{
+	//TODO:只比较日期来作为SLWDT类的比较，有无问题呢，暂时先这样
+	return lhs.GetDate() > rhs.GetDate();
+}
+
+bool operator<(const StoreSingleLineData& lhs, const StoreSingleLineData& rhs)
+{
+	return lhs.GetDate() < rhs.GetDate();
 }

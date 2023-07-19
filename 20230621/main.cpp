@@ -1,12 +1,21 @@
-#include "mainForLab8AndLab9.h"
 #include "UserInterface.h"
+//#define DEBUG
 
 int main()
 {
-	mainForLab8AndLab9();
-
-	UserSpace::MyVector<SLWDT> v1;
+	std::multimap <Date, SLWDT> v1;
 	ReadFile f1(v1);
+
+#ifdef DEBUG
+	for (int i=0;i<v1.GetSize();i++)
+	{
+		map<string,double>::iterator iter;
+		for (iter = v1[i].GetMapSensorsData().begin(); iter != v1[i].GetMapSensorsData().end(); iter++)
+		{
+			cout << iter->first << ' ' << iter->second << endl;
+		}
+	}
+#endif
 
 	bool runFlag = true;
 	std::cout << "The functions are like below:" << std::endl <<
