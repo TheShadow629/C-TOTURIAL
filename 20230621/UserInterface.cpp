@@ -4,23 +4,24 @@
 #include "MathUtils.h"
 #include "Vector.h"
 #include <iomanip>
+#include <list>
+
+#include "CollectDouble.h"
 
 int UserInterface::Function1( ReadFile& f1) {
 	std::cout << "Please input year and month to get wind data" << std::endl;
 	int year = 0, month = 0;
 	std::cin >> year >> month;
 
-	//ReadFile f1;
-	//f1.initialize();
-
-	UserSpace::MyVector<double> result = f1.GetSpecificDataOfMonth(year, month, "S", true);
-	double ave = 0, stdev = 0;
-	ave = MathUtils::CalculateAve(result);
-	stdev = MathUtils::CalculateStand(result);
+	Bst<double> result= f1.GetSpecificDataOfMonth(year, month, "S", true);
+	CollectD<double> cd;
+	result.InOrderTraversal(CollectD<double>::Add);
+	std::list<double> tmp;
+	CollectD<double>::Get(tmp);
 
 	std::cout << endl << MathUtils::GetMonthFromNum(month) << " " << year << ":";
-
-	if (result.GetSize() > 0)
+	double ave = 0, stdev = 0;
+	if (MathUtils::CalculateAve(tmp, ave)&& MathUtils::CalculateStand(tmp, stdev))
 	{
 		std::cout << std::endl
 			<< "Average Speed: " << setiosflags(ios::fixed) << setprecision(1) << ave << "km/h" << endl
@@ -39,18 +40,18 @@ int UserInterface::Function2(ReadFile& f1) {
 	int year = 0;
 	std::cin >> year;
 
-	//ReadFile f1;
-	//f1.initialize();
-
 	cout << endl << year << endl;
 	for (int i = 1; i < 13; i++)
 	{
-		UserSpace::MyVector<double> result = f1.GetSpecificDataOfMonth(year, i, "T", true);
-		double ave = 0, stdev = 0;
-		ave = MathUtils::CalculateAve(result);
-		stdev = MathUtils::CalculateStand(result);
+		Bst<double> result = f1.GetSpecificDataOfMonth(year, i, "T", true);
+		CollectD<double> cd;
+		result.InOrderTraversal(CollectD<double>::Add);
+		std::list<double> tmp;
+		CollectD<double>::Get(tmp);
+
 		cout << MathUtils::GetMonthFromNum(i) << ": ";
-		if (result.GetSize() > 0)
+		double ave = 0, stdev = 0;
+		if (MathUtils::CalculateAve(tmp, ave) && MathUtils::CalculateStand(tmp, stdev))
 		{
 			cout << "average: " << setiosflags(ios::fixed) << setprecision(1) << ave
 				<< " degrees C, stdev: " << setiosflags(ios::fixed) << setprecision(1) << stdev << endl;
@@ -74,14 +75,20 @@ int UserInterface::Function3(ReadFile& f1) {
 
 	for (int i = 1; i < 13; i++)
 	{
-		UserSpace::MyVector<double> result = f1.GetSpecificDataOfMonth(year, i, "SR", false);
-		double sum = 0;
+		//UserSpace::MyVector<double> result = f1.GetSpecificDataOfMonth(year, i, "SR", false);
+		Bst<double> result = f1.GetSpecificDataOfMonth(year, i, "SR", true);
+		CollectD<double> cd;
+		result.InOrderTraversal(CollectD<double>::Add);
+		std::list<double> tmp;
+		CollectD<double>::Get(tmp);
+
 		cout << MathUtils::GetMonthFromNum(i) << ": ";
-		if (result.GetSize() > 0)
+		if (!tmp.empty())
 		{
-			for (int i = 0; i < result.GetSize(); i++)
+			double sum = 0;
+			for (double num : tmp)
 			{
-				sum += result[i];
+				sum += num;
 			}
 			sum /= 6000;
 			cout << setiosflags(ios::fixed) << setprecision(1) << sum << " kWh/m2";
@@ -90,6 +97,21 @@ int UserInterface::Function3(ReadFile& f1) {
 		{
 			std::cout << "No Data";
 		}
+
+		//double sum = 0;
+		//if (result.GetSize() > 0)
+		//{
+		//	for (int i = 0; i < result.GetSize(); i++)
+		//	{
+		//		sum += result[i];
+		//	}
+		//	sum /= 6000;
+		//	cout << setiosflags(ios::fixed) << setprecision(1) << sum << " kWh/m2";
+		//}
+		//else
+		//{
+		//	std::cout << "No Data";
+		//}
 		cout << endl;
 	}
 
@@ -104,18 +126,23 @@ int UserInterface::Function4(ReadFile& f1) {
 	int year = 0;
 	std::cin >> year;
 
-	//ReadFile f1;
-	//f1.initialize();
-
 	ofstream file("WindTempSolar.csv");
 	file << year << endl;
 
 	for (int i = 1; i < 13; i++)
 	{
-		UserSpace::MyVector<double> result = f1.GetSpecificDataOfMonth(year, i, "S", true);
-		double ave = MathUtils::CalculateAve(result);
-		double stdev = MathUtils::CalculateStand(result);
-		if (result.GetSize() != 0)
+		//UserSpace::MyVector<double> result = f1.GetSpecificDataOfMonth(year, i, "S", true);
+		//double ave = MathUtils::CalculateAve(result);
+		//double stdev = MathUtils::CalculateStand(result);
+
+		Bst<double> result = f1.GetSpecificDataOfMonth(year, i, "S", true);
+		CollectD<double> cd;
+		result.InOrderTraversal(CollectD<double>::Add);
+		std::list<double> tmp;
+		CollectD<double>::Get(tmp);
+		double ave = 0, stdev = 0;
+
+		if (MathUtils::CalculateAve(tmp, ave) && MathUtils::CalculateStand(tmp, stdev))
 		{
 			file << MathUtils::GetMonthFromNum(i)
 				<< "," << setiosflags(ios::fixed) << setprecision(1) << ave
@@ -127,11 +154,16 @@ int UserInterface::Function4(ReadFile& f1) {
 				<< ",";
 		}
 
-
+		//result = f1.GetSpecificDataOfMonth(year, i, "T", true);
+		//ave = MathUtils::CalculateAve(result);
+		//stdev = MathUtils::CalculateStand(result);
 		result = f1.GetSpecificDataOfMonth(year, i, "T", true);
-		ave = MathUtils::CalculateAve(result);
-		stdev = MathUtils::CalculateStand(result);
-		if (result.GetSize() != 0)
+		CollectD<double>::Clear();
+		result.InOrderTraversal(CollectD<double>::Add);
+		tmp.clear();
+		CollectD<double>::Get(tmp);
+
+		if (MathUtils::CalculateAve(tmp, ave) && MathUtils::CalculateStand(tmp, stdev))
 		{
 			file << "," << setiosflags(ios::fixed) << setprecision(1) << ave
 				<< "(" << setiosflags(ios::fixed) << setprecision(1) << stdev
@@ -142,15 +174,21 @@ int UserInterface::Function4(ReadFile& f1) {
 			file << ",";
 		}
 
+
 		result = f1.GetSpecificDataOfMonth(year, i, "SR", false);
-		double sum = 0;
-		for (int i = 0; i < result.GetSize(); i++)
+		CollectD<double>::Clear();
+		result.InOrderTraversal(CollectD<double>::Add);
+		tmp.clear();
+		CollectD<double>::Get(tmp);
+
+		if (!tmp.empty())
 		{
-			sum += result[i];
-		}
-		sum /= 6000;
-		if (result.GetSize() != 0)
-		{
+			double sum = 0;
+			for (double num : tmp) 
+			{
+				sum += num;
+			}
+			sum /= 6000;
 			file << "," << setiosflags(ios::fixed) << setprecision(1) << sum << endl;
 		}
 		else

@@ -128,7 +128,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Date.cpp" />
-    <ClCompile Include="intBst.cpp" />
     <ClCompile Include="mainForLab8And9.cpp" />
     <ClCompile Include="MathUtils.cpp" />
     <ClCompile Include="ReadFile.cpp" />
@@ -142,9 +141,8 @@
     <ClCompile Include="Vector.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Bst.h" />
+    <ClInclude Include="CollectDouble.h" />
     <ClInclude Include="Date.h" />
-    <ClInclude Include="intBST.h" />
     <ClInclude Include="MathUtils.h" />
     <ClInclude Include="StoreSingleLineData.h" />
     <ClInclude Include="UserInterface.h" />

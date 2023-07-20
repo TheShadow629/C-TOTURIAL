@@ -14,6 +14,10 @@ struct nodeType  // answer why struct encapsulation is used - rationale
 	T Data; /* 结点数据 */
 	nodeType<T>* Left;     /* 指向左子树 */
 	nodeType<T>* Right;    /* 指向右子树 */
+	T& GetData()
+	{
+		return Data;
+	}
 };
 
 template <class T>
@@ -29,8 +33,8 @@ public:
 	nodeType<T>* Find(T X, nodeType<T>* BST);
 
 	void InOrderTraversal(processMethod f1) const;
-	void PreOrderTraversal(processMethod f1) const; 
-	void PostOrderTraversal(processMethod f1) const; 
+	void PreOrderTraversal(processMethod f1) const;
+	void PostOrderTraversal(processMethod f1) const;
 
 	nodeType<T>* GetTree();
 private:
@@ -74,7 +78,7 @@ nodeType<T>* Bst<T>::Insert(nodeType<T>* BST, T X)
 	{
 		if (X < BST->GetData())
 			BST->Left = Insert(BST->Left, X);
-		else if (X > BST->GetData())
+		else //if (X > BST->GetData())
 			BST->Right = Insert(BST->Right, X);
 	}
 	return BST;
@@ -112,16 +116,19 @@ nodeType<T>* Bst<T>::Find(T X, nodeType<T>* BST)
 }
 
 template <class T>
-void Bst<T>::InOrder(processMethod f1, nodeType<T>* p) const
+void Bst<T>::InOrder(processMethod f1, nodeType<T>* BST) const
 {
 	if (BST == NULL) {
 		return;
 	}
 	else {
-		InOrderTraversal(BST->Left);
+		InOrder(f1,BST->Left);
 		//std::cout << BST->GetData() << "  ";
-		f1(BST->GetData());
-		InOrderTraversal(BST->Right);
+		if (BST!= m_root)//不遍历根节点的数据
+		{
+			f1(BST->GetData());
+		}
+		InOrder(f1,BST->Right);
 	}
 }
 
@@ -132,25 +139,41 @@ void Bst<T>::InOrderTraversal(processMethod f1) const
 }
 
 template <class T>
-void Bst<T>::PreOrder(processMethod f1, nodeType<T>* p) const
+void Bst<T>::PreOrder(processMethod f1, nodeType<T>* BST) const
 {
-
+	if (BST == NULL) {
+		return;
+	}
+	else {
+		f1(BST->GetData());
+		//std::cout << BST->GetData() << "  ";
+		PreOrder(f1,BST->Left);
+		PreOrder(f1,BST->Right);
+	}
 }
 
 template <class T>
 void Bst<T>::PreOrderTraversal(processMethod f1) const
 {
-
+	PreOrder(f1, m_root);
 }
 
 template <class T>
-void Bst<T>::PostOrder(processMethod f1, nodeType<T>* p) const
+void Bst<T>::PostOrder(processMethod f1, nodeType<T>* BST) const
 {
-
+	if (BST == NULL) {
+		return;
+	}
+	else {
+		PostOrder(f1,BST->Left);
+		PostOrder(f1,BST->Right);
+		f1(BST->GetData());
+		//std::cout << BST->GetData() << "  ";
+	}
 }
 
 template <class T>
 void Bst<T>::PostOrderTraversal(processMethod f1) const
 {
-
+	PostOrder(f1, m_root);
 }

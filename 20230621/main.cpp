@@ -1,20 +1,45 @@
 #include "UserInterface.h"
-//#define DEBUG
+#define DEBUG
+#include "BinerySearchTree.h"
+
+#ifdef DEBUG
+template<typename T>
+void printData(T d)
+{
+	std::cout << d<<std::endl;
+}
+#endif
 
 int main()
 {
+#ifdef DEBUG
+	////测试Bst的内容
+	//Bst<int> mybst(9);
+	//mybst.Insert(mybst.GetTree(), 3);
+	//mybst.Insert(mybst.GetTree(), 6);
+	//mybst.Insert(mybst.GetTree(), 2);
+	//mybst.Insert(mybst.GetTree(), 8);
+	//mybst.Insert(mybst.GetTree(), 1);
+	//mybst.Insert(mybst.GetTree(), 7);
+	//mybst.Insert(mybst.GetTree(), 300);
+	//mybst.Insert(mybst.GetTree(), 0);
+	//mybst.InOrderTraversal(printData);
+	//mybst.DeleteTree(mybst.GetTree());
+#endif
 	std::multimap <Date, SLWDT> v1;
 	ReadFile f1(v1);
 
 #ifdef DEBUG
-	for (int i=0;i<v1.GetSize();i++)
-	{
-		map<string,double>::iterator iter;
-		for (iter = v1[i].GetMapSensorsData().begin(); iter != v1[i].GetMapSensorsData().end(); iter++)
-		{
-			cout << iter->first << ' ' << iter->second << endl;
-		}
-	}
+	//测试map拿取数据正确性的内容
+	//for (int i=0;i<v1.GetSize();i++)
+	//{
+	//	map<string,double>::iterator iter;
+	//	for (iter = v1[i].GetMapSensorsData().begin(); iter != v1[i].GetMapSensorsData().end(); iter++)
+	//	{
+	//		cout << iter->first << ' ' << iter->second << endl;
+	//	}
+	//}
+
 #endif
 
 	bool runFlag = true;

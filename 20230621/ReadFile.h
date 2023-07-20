@@ -4,6 +4,8 @@
 #include<string>
 #include <fstream>
 #include <sstream>
+
+#include "BinerySearchTree.h"
 #include"Vector.h"
 #include "Date.h"
 #include "Time.h"
@@ -41,8 +43,8 @@ public:
 	ReadFile(std::multimap <Date, SLWDT>& outData,string source="data_source.txt");
 	void Initialize(std::multimap <Date, SLWDT>& outData);
 	//int GetColIndex(string colName);
-	UserSpace::MyVector<double> GetSpecificDataOfMonth(int year, int month, string colName, bool flag);
-	UserSpace::MyVector<double> GetSpecificDataOfDay(int year, int month, int day, string colName);
+	Bst<double>& GetSpecificDataOfMonth(int year, int month, string colName, bool flag);
+	double GetSpecificDataOfDay(int year, int month, int day, string colName, bool flag);
 };
 
 

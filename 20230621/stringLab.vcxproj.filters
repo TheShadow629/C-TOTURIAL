@@ -48,9 +48,6 @@
     <ClCompile Include="TEST.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="intBst.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="mainForLab8And9.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -68,13 +65,10 @@
     <ClInclude Include="StoreSingleLineData.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Bst.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="intBST.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="BinerySearchTree.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CollectDouble.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

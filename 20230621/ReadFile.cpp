@@ -2,6 +2,9 @@
 #include <string>
 #include <fstream>
 #include <sstream>
+
+#include "BinerySearchTree.h"
+
 void ReadFile::SetDataSourcePath(string path) {
 	m_DataSourcePath = path;
 }
@@ -174,9 +177,9 @@ void ReadFile::Initialize(std::multimap <Date, SLWDT>& outData)
 //	return index - 1;//if find the matched value, casue m_headwithoutdata(type SLWD,also saved in slwdt,so it means save in the sesor data.) saved the value except data and time,so if we want to find the colname, we need to minus 1,minus the data one. if can't find,return -1
 //}
 
-UserSpace::MyVector<double> ReadFile::GetSpecificDataOfDay(int year, int month, int day, string colName)
+double ReadFile::GetSpecificDataOfDay(int year, int month, int day, string colName, bool flag)
 {
-	UserSpace::MyVector<double> result;
+	//如果flag为false（0）我们就认为是需要总和，如果为true（1），我们就认为是需要平均值
 	double sum = 0;
 	int count = 0;
 
@@ -191,6 +194,14 @@ UserSpace::MyVector<double> ReadFile::GetSpecificDataOfDay(int year, int month, 
 			sum += iter->second.GetMapSensorsData()[colName];
 			count++;
 		}
+		if (flag)
+			return sum / count;
+		else
+			return sum;
+	}
+	else
+	{
+		return 0;
 	}
 	//for (int i = 0; i < m_DataWithoutHead.GetSize(); i++)
 	//{
@@ -206,30 +217,34 @@ UserSpace::MyVector<double> ReadFile::GetSpecificDataOfDay(int year, int month, 
 	//		count++;//how many times we get the data, using to cal the aver.
 	//	}
 	//}
-	if (count != 0)
-	{
-		result.Add(sum);
-		result.Add(sum / count);
-		//result里面第一个数字为当日数据总和，第二个数据为当日数据平均值
-	}
-	return result;//如果没有符合日期的数据则result为空
+
+	//if (count != 0)
+	//{
+	//	result.Add(sum);
+	//	result.Add(sum / count);
+	//	//result里面第一个数字为当日数据总和，第二个数据为当日数据平均值
+	//}
+	//return result;//如果没有符合日期的数据则result为空
 	//return to get specific data of day method.
 }
 
-UserSpace::MyVector<double> ReadFile::GetSpecificDataOfMonth(int year, int month, string colName, bool flag)
+Bst<double>& ReadFile::GetSpecificDataOfMonth(int year, int month, string colName, bool flag)
 {
 	//bool flag决定我们需要当日数据的平均值（比如风速）还是总和（比如太阳辐射量）
 	//如果flag为false（0）我们就认为是需要总和，如果为true（1），我们就认为是需要平均值
-	UserSpace::MyVector<double> result;
-
+	//UserSpace::MyVector<double> result;
+	Bst<double> res(0);
 	for (int day = 1; day < dayNums; day++)
 	{
-		if (GetSpecificDataOfDay(year, month, day, colName).GetSize() > 0)
+		double dayValue = GetSpecificDataOfDay(year, month, day, colName, flag);
+		if (dayValue)
 		{
-			result.Add(GetSpecificDataOfDay(year, month, day, colName)[flag]);
+			//result.Add(GetSpecificDataOfDay(year, month, day, colName, flag));
+			res.Insert(res.GetTree(), dayValue);
 		}
 	}
-	return result;
+	return res;
+	//return result;
 }
 
 
