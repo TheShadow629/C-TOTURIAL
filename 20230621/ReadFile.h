@@ -46,6 +46,4 @@ public:
 	Bst<double>& GetSpecificDataOfMonth(int year, int month, string colName, bool flag);
 	double GetSpecificDataOfDay(int year, int month, int day, string colName, bool flag);
 };
-
-
 #endif // ReadFile_h__

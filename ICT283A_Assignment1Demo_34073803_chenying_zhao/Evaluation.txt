@@ -1,0 +1,33 @@
+Achieved:
+This program can run as expected in case 1-6, for example: the output format, 
+the average algorithme, the file of case4 can also be created normally, and the output 
+is also in accordance with the format requirements, case1-4 already used the BST to 
+store the data and output successfully. case5 use STL set to store the data and output
+successfully. case6 can exit normally, the vector class can run normally, Tests can 
+also be run. the rest class work well.
+ 
+Not achieved:
+without prepending m_ to global variables.
+case5 the output of date format is a little bit wrong, the month is showing at the 
+start. like 3(month)/11(day)/2014.
+the specific time in case 5 didn't show.
+
+
+Where to find:
+Open the file named ‘ICT283A_Assignment1Demo_34073803_chenying_zhao’, for running this 
+program, click ’AssignmentDemo1’, as you open this file, click the‘AssignmentDemo1.cbp’,
+after entering the program, you can find the run button on the top, click run, the 
+program will run.
+How to use:
+After running the program, users can enter number ‘1-6’ to try different case, enter 
+‘1-3’, and follow the instruction pop on the screen, it will show the expected result. 
+Enter ‘4’, and type the year from keyboard, you can find ‘WindTempSolar.csv’ under the 
+‘data’ file, type'5', it will show the highest solar radiation, and the date.about ‘6’, 
+it will exit the program.
+Test plan: input the number 1-6, to check is the program worked.
+And the test for vector, make sure work well.
+output: the average value of specific data, find the matched csv file and exit 
+successfully, and the vector class,stl map,and BST worked well.
+
+NOTED:
+Doxygen: i make a new Doxygen, please find the index.html inthe html file.

@@ -112,7 +112,7 @@ void ReadFile::Initialize(std::multimap <Date, SLWDT>& outData)
 					}
 					catch (...)
 					{
-						//cout << "Something else" << endl;
+						continue;//cout << "Something else" << endl;
 					}
 				}
 				//m_DataWithoutHead.Add(sld);//save into member variable,m_datawithouthead,cause sld is local variable, it ends when the loop end, one time variable.  
@@ -186,8 +186,9 @@ double ReadFile::GetSpecificDataOfDay(int year, int month, int day, string colNa
 	Date d(year, month, day);
 	auto iter1 = m_MapDataWithoutHead.lower_bound(d);
 	auto iter2 = m_MapDataWithoutHead.upper_bound(d);
+	int c = m_MapDataWithoutHead.count(d);
 
-	if (iter1 != std::end(m_MapDataWithoutHead))
+	if (iter1 != std::end(m_MapDataWithoutHead)&&(c!=0))
 	{
 		for (auto iter = iter1; iter != iter2; ++iter)
 		{

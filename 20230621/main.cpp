@@ -72,7 +72,10 @@ int main()
 			UserInterface::Function4(f1);
 			break;
 		case 5:
-			UserInterface::Function5_EXIT(runFlag);
+			UserInterface::Function5(f1);
+			break;
+		case 6:
+			UserInterface::Function6_EXIT(runFlag);
 			break;
 		default:
 			std::cout << "Invaild Input" << std::endl;

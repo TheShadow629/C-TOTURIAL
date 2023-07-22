@@ -1,0 +1,109 @@
+# depslib dependency file v1.0
+1656131107 source:d:\283 remodel\assignment1demo\assigmentdemo1\main.cpp
+	<iostream>
+	<fstream>
+	<algorithm>
+	<string>
+	<sstream>
+	"Vector.h"
+	"FileAnalysis.h"
+
+1656128060 d:\283 remodel\assignment1demo\assigmentdemo1\vector.h
+	<string>
+	<string.h>
+	<iostream>
+	"Weather_Data.h"
+
+1656128010 d:\283 remodel\assignment1demo\assigmentdemo1\weather_data.h
+	<iostream>
+
+1656128186 d:\283 remodel\assignment1demo\assigmentdemo1\fileanalysis.h
+	<iostream>
+	<fstream>
+	"Vector.h"
+
+1656128754 source:d:\283 remodel\assignment1demo\assigmentdemo1\test.cpp
+	"Vector.h"
+
+1656128668 source:d:\283 remodel\assignment1demo\assigmentdemo1\time.cpp
+	"Time.h"
+
+1656127881 d:\283 remodel\assignment1demo\assigmentdemo1\time.h
+	<iostream>
+	<string>
+	<sstream>
+	"Date.h"
+
+1656127883 d:\283 remodel\assignment1demo\assigmentdemo1\date.h
+
+1656129694 source:d:\283 remodel\assignment1demo\assigmentdemo1\fileanalysis.cpp
+	"FileAnalysis.h"
+	"Time.h"
+	<string>
+	<algorithm>
+
+1659245175 source:d:\283 remodel\ict283a_assignment1demo_34073803_chenying_zhao\assigmentdemo1\fileanalysis.cpp
+	"FileAnalysis.h"
+	"Time.h"
+
+1659245348 d:\283 remodel\ict283a_assignment1demo_34073803_chenying_zhao\assigmentdemo1\fileanalysis.h
+	<iostream>
+	<fstream>
+	<set>
+	<vector>
+	<algorithm>
+	"Weather_data.h"
+	"Vector.h"
+	"Bst_Tree.h"
+
+1656426991 d:\283 remodel\ict283a_assignment1demo_34073803_chenying_zhao\assigmentdemo1\vector.h
+	<string>
+	<string.h>
+	<iostream>
+	"Read_temp_save.h"
+	"Weather_data.h"
+
+1656076003 d:\283 remodel\ict283a_assignment1demo_34073803_chenying_zhao\assigmentdemo1\weather_data.h
+	<iostream>
+
+1656075461 d:\283 remodel\ict283a_assignment1demo_34073803_chenying_zhao\assigmentdemo1\time.h
+	<iostream>
+	<string>
+	<sstream>
+	"Date.h"
+
+1656075337 d:\283 remodel\ict283a_assignment1demo_34073803_chenying_zhao\assigmentdemo1\date.h
+
+1659244851 source:d:\283 remodel\ict283a_assignment1demo_34073803_chenying_zhao\assigmentdemo1\main.cpp
+	<iostream>
+	<fstream>
+	<algorithm>
+	<string>
+	<sstream>
+	"Vector.h"
+	"FileAnalysis.h"
+	"Read_temp_save.h"
+	"Test.h"
+
+1659158102 source:d:\283 remodel\ict283a_assignment1demo_34073803_chenying_zhao\assigmentdemo1\test.cpp
+	"Vector.h"
+	"FileAnalysis.h"
+	"Bst_Tree.h"
+
+1655906598 source:d:\283 remodel\ict283a_assignment1demo_34073803_chenying_zhao\assigmentdemo1\time.cpp
+	"Time.h"
+
+1659187088 d:\283 remodel\ict283a_assignment1demo_34073803_chenying_zhao\assigmentdemo1\bsttree.h
+	<iostream>
+
+1659189650 d:\283 remodel\ict283a_assignment1demo_34073803_chenying_zhao\assigmentdemo1\time.cpp
+	"Time.h"
+
+1656075052 d:\283 remodel\ict283a_assignment1demo_34073803_chenying_zhao\assigmentdemo1\read_temp_save.h
+	<iostream>
+
+1659094976 d:\283 remodel\ict283a_assignment1demo_34073803_chenying_zhao\assigmentdemo1\bst_tree.h
+	<iostream>
+
+1659158227 d:\283 remodel\ict283a_assignment1demo_34073803_chenying_zhao\assigmentdemo1\test.h
+

@@ -48,9 +48,6 @@
     <ClCompile Include="TEST.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="mainForLab8And9.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Date.h">

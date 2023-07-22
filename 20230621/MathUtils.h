@@ -1,9 +1,8 @@
 #ifndef MathUtils_h__
 #define MathUtils_h__
 
+//#include "Vector.h"
 #include <list>
-
-#include "Vector.h"
 #include <string>
 
 class MathUtils

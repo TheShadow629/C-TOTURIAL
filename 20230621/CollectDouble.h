@@ -20,7 +20,8 @@ std::list<T> CollectD<T>::m_data;
 template<typename T>
 void CollectD<T>::Get(std::list<T>& outD)
 {
-	outD = m_data;
+	//outD = m_data;
+	outD.insert(outD.end(), m_data.begin(), m_data.end());
 }
 
 template<typename T>

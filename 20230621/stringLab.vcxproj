@@ -128,7 +128,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Date.cpp" />
-    <ClCompile Include="mainForLab8And9.cpp" />
     <ClCompile Include="MathUtils.cpp" />
     <ClCompile Include="ReadFile.cpp" />
     <ClCompile Include="main.cpp" />
