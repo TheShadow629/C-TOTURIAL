@@ -13,13 +13,13 @@ string ReadFile::GetDataSourcePath() const {
 	return m_DataSourcePath;
 }
 
-void ReadFile::SetDataFilePaths(UserSpace::MyVector<string> paths) {
-	m_DataFilePaths = paths;
-}
-
-UserSpace::MyVector<string> ReadFile::GetDataFilePaths() const {
-	return m_DataFilePaths;
-}
+//void ReadFile::SetDataFilePaths(UserSpace::MyVector<string> paths) {
+//	m_DataFilePaths = paths;
+//}
+//
+//UserSpace::MyVector<string> ReadFile::GetDataFilePaths() const {
+//	return m_DataFilePaths;
+//}
 
 //void ReadFile::SetRawCsvData(UserSpace::MyVector<UserSpace::MyVector<string>> data) {
 //	m_RawCsvData = data;
@@ -29,13 +29,13 @@ UserSpace::MyVector<string> ReadFile::GetDataFilePaths() const {
 //	return m_RawCsvData;
 //}
 
-void ReadFile::SetColNames(UserSpace::MyVector<string> colnames) {
-	m_ColNames = colnames;
-}
-
-UserSpace::MyVector<string> ReadFile::GetColNames() const {
-	return m_ColNames;
-}
+//void ReadFile::SetColNames(UserSpace::MyVector<string> colnames) {
+//	m_ColNames = colnames;
+//}
+//
+//UserSpace::MyVector<string> ReadFile::GetColNames() const {
+//	return m_ColNames;
+//}
 
 //void ReadFile::SetDataWithoutHead(UserSpace::MyVector<SLWDT> data) {
 //	m_DataWithoutHead = data;
@@ -45,24 +45,26 @@ UserSpace::MyVector<string> ReadFile::GetColNames() const {
 //	return m_DataWithoutHead;
 //}
 
-ReadFile::ReadFile(std::multimap <Date, SLWDT>& outData, string source)
+ReadFile::ReadFile(std::multimap <Date, std::map<std::string, double>>& outData, string source)
 {
 	m_DataSourcePath = source;//datasource:txt filename
 	Initialize(outData);
 }
 
-void ReadFile::Initialize(std::multimap <Date, SLWDT>& outData)
+void ReadFile::Initialize(std::multimap <Date, std::map<std::string, double>>& outData)
 {
 	ifstream inFile(m_DataSourcePath, ios::in);
 	string lineStr;
 	while (getline(inFile, lineStr))
 	{
-		m_DataFilePaths.Add(lineStr);//CSVfilename in txt
+		m_DataFilePaths.push_back(lineStr);//CSVfilename in txt
 	}
-	for (int i = 0; i < m_DataFilePaths.GetSize(); i++)//依次处理几个csv file
+	//for (int i = 0; i < m_DataFilePaths.GetSize(); i++)//依次处理几个csv file
+	for (auto CsvFileName = m_DataFilePaths.begin(); CsvFileName != m_DataFilePaths.end(); ++CsvFileName)
 	{
 		//此时处理的csv文件名是m_DataFilePaths[i]
-		ifstream singleCSV(m_DataFilePaths[i], ios::in);//get the data from the first csv file, save in the singleCSV.
+		//ifstream singleCSV(m_DataFilePaths[i], ios::in);//get the data from the first csv file, save in the singleCSV.
+		ifstream singleCSV(*CsvFileName, ios::in);//get the data from the first csv file, save in the singleCSV.
 		string allColName;//save the head data.
 		getline(singleCSV, allColName);
 		//将表头信息读入m_ColNames
@@ -73,10 +75,17 @@ void ReadFile::Initialize(std::multimap <Date, SLWDT>& outData)
 		//if (m_ColNames.GetSize() > 0)//说明前面已经读取过至少一个文件
 		//	preColNames = m_ColNames;
 
-		UserSpace::MyVector<string> New_m_ColNames;
+		//UserSpace::MyVector<string> New_m_ColNames;
+		//while (getline(ss, colName, ','))//split the head information by',', and add in add m_colnames one by one.
+		//{
+		//	New_m_ColNames.Add(colName);
+		//}
+		//m_ColNames = New_m_ColNames;
+
+		std::list<string> New_m_ColNames;
 		while (getline(ss, colName, ','))//split the head information by',', and add in add m_colnames one by one.
 		{
-			New_m_ColNames.Add(colName);
+			New_m_ColNames.push_back(colName);
 		}
 		m_ColNames = New_m_ColNames;
 
@@ -85,30 +94,44 @@ void ReadFile::Initialize(std::multimap <Date, SLWDT>& outData)
 		{
 			stringstream ss(line);//put one line data into a stream variable-ss
 			string single;
-			UserSpace::MyVector<string> lineArray;
+			//UserSpace::MyVector<string> lineArray;
+			std::list<string> lineArray;
 			while (getline(ss, single, ','))//split the line by',', and save the processed data into vector-linearray.
 			{
-				lineArray.Add(single);
+				lineArray.push_back(single);
 			}
 			//m_RawCsvData.push_back(lineArray);
 
 			//此时lineArray就是一行的数据，其形式为：1/03/2015 9:00	12	10.8	111	20	0.1	1011.3	1007.7
-			stringstream ss1(lineArray[0]);//read the first element in the first line and save it in ss1.
+			stringstream ss1(*lineArray.begin());//read the first element in the first line and save it in ss1.
 			string date, time;
 			getline(ss1, date, ' ');//split the first element by' ',save in date.
 			getline(ss1, time, ' ');//split the first element, save time into time variable.
 
-			SLWDT sld;//declare the variable
-			sld.SetDate(date);//save the date variable into sld class.
-			sld.SetTime(time);//same as above.//sld.settime
+			//SLWDT sld;//declare the variable
+			//sld.SetDate(date);//save the date variable into sld class.
+			//sld.SetTime(time);//same as above.//sld.settime
 
-			if (sld.GetDate().GetYear() != 0)//为了过滤空行
+			Date lineDate;
+			lineDate.SetDate(date);
+			std::map<std::string, double> lineSensor;
+			if (lineDate.GetYear() != 0)//为了过滤空行
 			{
-				for (int k = 1; k < lineArray.GetSize(); k++)
+				//m_ColNames.pop_front();
+				//lineArray.pop_front();
+				//for (int k = 1; k < lineArray.GetSize(); k++)
+				auto ColName = m_ColNames.begin();
+				ColName++;
+				auto value = lineArray.begin();
+				value++;
+				for ( /*ColName = m_ColNames.begin(), value = lineArray.begin()*/; 
+					(ColName != m_ColNames.end())&&(value!= lineArray.end());
+					ColName++, value++)
 				{
 					try//为了过滤NA数据,使用tryCatch过滤错误数据
 					{
-						sld.AddData(pair<string, double>(m_ColNames[k], std::stod(lineArray[k])));
+						//sld.AddData(pair<string, double>(m_ColNames[k], std::stod(lineArray[k])));
+						lineSensor.insert(pair<string, double>(*ColName, std::stod(*value)));
 					}
 					catch (...)
 					{
@@ -118,8 +141,12 @@ void ReadFile::Initialize(std::multimap <Date, SLWDT>& outData)
 				//m_DataWithoutHead.Add(sld);//save into member variable,m_datawithouthead,cause sld is local variable, it ends when the loop end, one time variable.  
 				//outData.Add(sld);//return the useless, the lecture asked outdata.
 				//m_MapDataWithoutHead[sld.GetDate()]= sld;
-				m_MapDataWithoutHead.insert(std::pair<Date, SLWDT>(sld.GetDate(), sld));
-				outData.insert(std::pair<Date, SLWDT>(sld.GetDate(), sld));
+				//m_MapDataWithoutHead.insert(std::pair<Date, SLWDT>(sld.GetDate(), sld));
+
+				m_MapDataWithoutHead1.insert(std::pair<Date, std::map<std::string, double>>(lineDate, lineSensor));
+				outData.insert(std::pair<Date, std::map<std::string, double>>(lineDate, lineSensor));
+
+				//outData.insert(std::pair<Date, SLWDT>(sld.GetDate(), sld));
 			}
 			//if (preColNames.GetSize() > 0)//说明前面已经读取过至少一个文件
 			//{
@@ -180,19 +207,44 @@ void ReadFile::Initialize(std::multimap <Date, SLWDT>& outData)
 double ReadFile::GetSpecificDataOfDay(int year, int month, int day, string colName, bool flag)
 {
 	//如果flag为false（0）我们就认为是需要总和，如果为true（1），我们就认为是需要平均值
+	//double sum = 0;
+	//int count = 0;
+
+	//Date d(year, month, day);
+	//auto iter1 = m_MapDataWithoutHead.lower_bound(d);
+	//auto iter2 = m_MapDataWithoutHead.upper_bound(d);
+	//int c = m_MapDataWithoutHead.count(d);
+
+	//if (iter1 != std::end(m_MapDataWithoutHead)&&(c!=0))
+	//{
+	//	for (auto iter = iter1; iter != iter2; ++iter)
+	//	{
+	//		sum += iter->second.GetMapSensorsData()[colName];
+	//		count++;
+	//	}
+	//	if (flag)
+	//		return sum / count;
+	//	else
+	//		return sum;
+	//}
+	//else
+	//{
+	//	return 0;
+	//}
+
 	double sum = 0;
 	int count = 0;
 
 	Date d(year, month, day);
-	auto iter1 = m_MapDataWithoutHead.lower_bound(d);
-	auto iter2 = m_MapDataWithoutHead.upper_bound(d);
-	int c = m_MapDataWithoutHead.count(d);
+	auto iter1 = m_MapDataWithoutHead1.lower_bound(d);
+	auto iter2 = m_MapDataWithoutHead1.upper_bound(d);
+	int c = m_MapDataWithoutHead1.count(d);
 
-	if (iter1 != std::end(m_MapDataWithoutHead)&&(c!=0))
+	if (iter1 != std::end(m_MapDataWithoutHead1) && (c != 0))
 	{
 		for (auto iter = iter1; iter != iter2; ++iter)
 		{
-			sum += iter->second.GetMapSensorsData()[colName];
+			sum += iter->second[colName];
 			count++;
 		}
 		if (flag)
@@ -204,6 +256,7 @@ double ReadFile::GetSpecificDataOfDay(int year, int month, int day, string colNa
 	{
 		return 0;
 	}
+
 	//for (int i = 0; i < m_DataWithoutHead.GetSize(); i++)
 	//{
 	//	if ((m_DataWithoutHead[i].GetDate().GetYear() == year) &&

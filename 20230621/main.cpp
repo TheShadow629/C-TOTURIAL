@@ -26,7 +26,7 @@ int main()
 	//mybst.InOrderTraversal(printData);
 	//mybst.DeleteTree(mybst.GetTree());
 #endif
-	std::multimap <Date, SLWDT> v1;
+	std::multimap <Date, std::map<std::string, double>> v1;
 	ReadFile f1(v1);
 
 #ifdef DEBUG

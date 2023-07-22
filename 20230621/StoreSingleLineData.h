@@ -10,8 +10,8 @@ class StoreSingleLineData
 public:
 	void SetDate(string& d);
 	Date GetDate() const;
-	void SetTime(string& T);
-	Time GetTime();
+	//void SetTime(string& T);
+	//Time GetTime();
 
 	//void AddData(const double& n);
 	void AddData(const std::pair<std::string, double>& d);
@@ -20,7 +20,7 @@ public:
 	std::map<std::string, double>& GetMapSensorsData();
 private:
 	Date m_d;
-	Time m_t;
+	//Time m_t;
 	//UserSpace::MyVector<double> m_SensorsData;
 	std::map<std::string, double> m_MapSensorsData;
 };

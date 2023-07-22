@@ -36,6 +36,7 @@ int UserInterface::Function1( ReadFile& f1) {
 		std::cout << "No Data" << endl;
 	}
 
+	result.DeleteTree(result.GetTree());
 	return 0;
 }
 
@@ -64,7 +65,9 @@ int UserInterface::Function2(ReadFile& f1) {
 		{
 			std::cout << "No Data" << endl;
 		}
+		result.DeleteTree(result.GetTree());
 	}
+
 	return 0;
 }
 
@@ -119,6 +122,9 @@ int UserInterface::Function3(ReadFile& f1) {
 		CollectD<double>::Clear();
 		result.InOrderTraversal(CollectD<double>::Add);
 		CollectD<double>::Get(SData);
+
+		result.DeleteTree(result.GetTree());
+
 	}
 
 	for (int year = STARTYEAR; year < ENDYEAR; year++)
@@ -127,6 +133,9 @@ int UserInterface::Function3(ReadFile& f1) {
 		CollectD<double>::Clear();
 		result.InOrderTraversal(CollectD<double>::Add);
 		CollectD<double>::Get(TData);
+
+		result.DeleteTree(result.GetTree());
+
 	}
 
 	for (int year = STARTYEAR; year < ENDYEAR; year++)
@@ -135,6 +144,9 @@ int UserInterface::Function3(ReadFile& f1) {
 		CollectD<double>::Clear();
 		result.InOrderTraversal(CollectD<double>::Add);
 		CollectD<double>::Get(RData);
+
+		result.DeleteTree(result.GetTree());
+
 	}
 	for (double num : RData)
 	{
@@ -223,6 +235,7 @@ int UserInterface::Function4(ReadFile& f1) {
 			file << MathUtils::GetMonthFromNum(i)
 				<< ",";
 		}
+		result.DeleteTree(result.GetTree());
 
 		//result = f1.GetSpecificDataOfMonth(year, i, "T", true);
 		//ave = MathUtils::CalculateAve(result);
@@ -243,6 +256,7 @@ int UserInterface::Function4(ReadFile& f1) {
 		{
 			file << ",";
 		}
+		result.DeleteTree(result.GetTree());
 
 
 		result = f1.GetSpecificDataOfMonth(year, i, "SR", false);
@@ -265,6 +279,8 @@ int UserInterface::Function4(ReadFile& f1) {
 		{
 			file << "," << endl;
 		}
+		result.DeleteTree(result.GetTree());
+
 	}
 	return 0;
 }
@@ -272,9 +288,12 @@ int UserInterface::Function4(ReadFile& f1) {
 int UserInterface::Function5(ReadFile& f1)
 {
 	//reload 
-	std::multimap <Date, SLWDT> v2;
+	std::multimap <Date, std::map<std::string, double>> v2;
+	std::cout << "Reloading files from data/data_source.txt, please wait ......" << endl;
 	ReadFile f2(v2);
 	f1 = f2;
+	std::cout << "Reload successful,please enter 1-5 to analyze data" << endl;
+
 	return 0;
 }
 
