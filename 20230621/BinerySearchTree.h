@@ -27,7 +27,7 @@ class Bst // answer why class encapsulation is used - rationale
 public:
 	Bst(T X = NULL);
 	//~Bst();
-
+	Bst();
 	nodeType<T>* Insert(nodeType<T>* BST, T X);
 	nodeType<T>* DeleteTree(nodeType<T>* BST);
 	nodeType<T>* Find(T X, nodeType<T>* BST);
@@ -49,6 +49,12 @@ private:
 //{
 //	DeleteTree(m_root);
 //}
+
+template <class T>
+Bst<T>::Bst()
+{
+	m_root = nullptr;
+}
 
 template <class T>
 Bst<T>::Bst(T X)

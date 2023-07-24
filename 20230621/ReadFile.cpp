@@ -82,12 +82,11 @@ void ReadFile::Initialize(std::multimap <Date, std::map<std::string, double>>& o
 		//}
 		//m_ColNames = New_m_ColNames;
 
-		std::list<string> New_m_ColNames;
+		m_ColNames.clear();
 		while (getline(ss, colName, ','))//split the head information by',', and add in add m_colnames one by one.
 		{
-			New_m_ColNames.push_back(colName);
+			m_ColNames.push_back(colName);
 		}
-		m_ColNames = New_m_ColNames;
 
 		string line;
 		while (getline(singleCSV, line))//read one line.
@@ -104,9 +103,9 @@ void ReadFile::Initialize(std::multimap <Date, std::map<std::string, double>>& o
 
 			//此时lineArray就是一行的数据，其形式为：1/03/2015 9:00	12	10.8	111	20	0.1	1011.3	1007.7
 			stringstream ss1(*lineArray.begin());//read the first element in the first line and save it in ss1.
-			string date, time;
+			string date/*, time*/;
 			getline(ss1, date, ' ');//split the first element by' ',save in date.
-			getline(ss1, time, ' ');//split the first element, save time into time variable.
+			//getline(ss1, time, ' ');//split the first element, save time into time variable.
 
 			//SLWDT sld;//declare the variable
 			//sld.SetDate(date);//save the date variable into sld class.
@@ -124,7 +123,8 @@ void ReadFile::Initialize(std::multimap <Date, std::map<std::string, double>>& o
 				ColName++;
 				auto value = lineArray.begin();
 				value++;
-				for ( /*ColName = m_ColNames.begin(), value = lineArray.begin()*/; 
+
+				for ( ; 
 					(ColName != m_ColNames.end())&&(value!= lineArray.end());
 					ColName++, value++)
 				{
@@ -204,17 +204,15 @@ void ReadFile::Initialize(std::multimap <Date, std::map<std::string, double>>& o
 //	return index - 1;//if find the matched value, casue m_headwithoutdata(type SLWD,also saved in slwdt,so it means save in the sesor data.) saved the value except data and time,so if we want to find the colname, we need to minus 1,minus the data one. if can't find,return -1
 //}
 
-double ReadFile::GetSpecificDataOfDay(int year, int month, int day, string colName, bool flag)
+double ReadFile::GetDayData(int year, int month, int day, string colName, bool flag)
 {
 	//如果flag为false（0）我们就认为是需要总和，如果为true（1），我们就认为是需要平均值
 	//double sum = 0;
 	//int count = 0;
-
 	//Date d(year, month, day);
 	//auto iter1 = m_MapDataWithoutHead.lower_bound(d);
 	//auto iter2 = m_MapDataWithoutHead.upper_bound(d);
 	//int c = m_MapDataWithoutHead.count(d);
-
 	//if (iter1 != std::end(m_MapDataWithoutHead)&&(c!=0))
 	//{
 	//	for (auto iter = iter1; iter != iter2; ++iter)
@@ -233,7 +231,7 @@ double ReadFile::GetSpecificDataOfDay(int year, int month, int day, string colNa
 	//}
 
 	double sum = 0;
-	int count = 0;
+	int Count = 0;
 
 	Date d(year, month, day);
 	auto iter1 = m_MapDataWithoutHead1.lower_bound(d);
@@ -245,10 +243,10 @@ double ReadFile::GetSpecificDataOfDay(int year, int month, int day, string colNa
 		for (auto iter = iter1; iter != iter2; ++iter)
 		{
 			sum += iter->second[colName];
-			count++;
+			Count++;
 		}
 		if (flag)
-			return sum / count;
+			return sum / Count;
 		else
 			return sum;
 	}
@@ -282,18 +280,18 @@ double ReadFile::GetSpecificDataOfDay(int year, int month, int day, string colNa
 	//return to get specific data of day method.
 }
 
-Bst<double>& ReadFile::GetSpecificDataOfMonth(int year, int month, string colName, bool flag)
+Bst<double>& ReadFile::GetMonthData(int year, int month, string colName, bool flag)
 {
 	//bool flag决定我们需要当日数据的平均值（比如风速）还是总和（比如太阳辐射量）
 	//如果flag为false（0）我们就认为是需要总和，如果为true（1），我们就认为是需要平均值
 	//UserSpace::MyVector<double> result;
 	Bst<double> res(0);
-	for (int day = 1; day < dayNums; day++)
+	for (int day = 1; day < DayNums; day++)
 	{
-		double dayValue = GetSpecificDataOfDay(year, month, day, colName, flag);
+		double dayValue = GetDayData(year, month, day, colName, flag);
 		if (dayValue)
 		{
-			//result.Add(GetSpecificDataOfDay(year, month, day, colName, flag));
+			//result.Add(GetDayData(year, month, day, colName, flag));
 			res.Insert(res.GetTree(), dayValue);
 		}
 	}

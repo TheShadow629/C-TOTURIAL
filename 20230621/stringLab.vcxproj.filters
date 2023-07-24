@@ -24,9 +24,6 @@
     <ClCompile Include="Time.h">
       <Filter>头文件</Filter>
     </ClCompile>
-    <ClCompile Include="Vector.h">
-      <Filter>头文件</Filter>
-    </ClCompile>
     <ClCompile Include="Time.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -42,9 +39,6 @@
     <ClCompile Include="MathUtils.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="StoreSingleLineData.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="TEST.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -57,9 +51,6 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="MathUtils.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="StoreSingleLineData.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="BinerySearchTree.h">

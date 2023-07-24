@@ -17,7 +17,7 @@ int UserInterface::Function1( ReadFile& f1) {
 	int year = 0, month = 0;
 	std::cin >> year >> month;
 
-	Bst<double> result= f1.GetSpecificDataOfMonth(year, month, "S", true);
+	Bst<double> result= f1.GetMonthData(year, month, "S", true);
 	CollectD<double> cd;
 	result.InOrderTraversal(CollectD<double>::Add);
 	std::list<double> tmp;
@@ -48,7 +48,7 @@ int UserInterface::Function2(ReadFile& f1) {
 	cout << endl << year << endl;
 	for (int i = 1; i < 13; i++)
 	{
-		Bst<double> result = f1.GetSpecificDataOfMonth(year, i, "T", true);
+		Bst<double> result = f1.GetMonthData(year, i, "T", true);
 		CollectD<double> cd;
 		result.InOrderTraversal(CollectD<double>::Add);
 		std::list<double> tmp;
@@ -82,8 +82,8 @@ int UserInterface::Function3(ReadFile& f1) {
 
 	//for (int i = 1; i < 13; i++)
 	//{
-	//	//UserSpace::MyVector<double> result = f1.GetSpecificDataOfMonth(year, i, "SR", false);
-	//	Bst<double> result = f1.GetSpecificDataOfMonth(year, i, "SR", false);
+	//	//UserSpace::MyVector<double> result = f1.GetMonthData(year, i, "SR", false);
+	//	Bst<double> result = f1.GetMonthData(year, i, "SR", false);
 	//	CollectD<double> cd;
 	//	result.InOrderTraversal(CollectD<double>::Add);
 	//	std::list<double> tmp;
@@ -118,7 +118,7 @@ int UserInterface::Function3(ReadFile& f1) {
 	std::list<double> SData, TData, RData;
 	for (int year = STARTYEAR; year < ENDYEAR; year++)
 	{
-		Bst<double> result = f1.GetSpecificDataOfMonth(year, month, "S", true);
+		Bst<double> result = f1.GetMonthData(year, month, "S", true);
 		CollectD<double>::Clear();
 		result.InOrderTraversal(CollectD<double>::Add);
 		CollectD<double>::Get(SData);
@@ -129,7 +129,7 @@ int UserInterface::Function3(ReadFile& f1) {
 
 	for (int year = STARTYEAR; year < ENDYEAR; year++)
 	{
-		Bst<double> result = f1.GetSpecificDataOfMonth(year, month, "T", true);
+		Bst<double> result = f1.GetMonthData(year, month, "T", true);
 		CollectD<double>::Clear();
 		result.InOrderTraversal(CollectD<double>::Add);
 		CollectD<double>::Get(TData);
@@ -140,7 +140,7 @@ int UserInterface::Function3(ReadFile& f1) {
 
 	for (int year = STARTYEAR; year < ENDYEAR; year++)
 	{
-		Bst<double> result = f1.GetSpecificDataOfMonth(year, month, "SR", false);
+		Bst<double> result = f1.GetMonthData(year, month, "SR", false);
 		CollectD<double>::Clear();
 		result.InOrderTraversal(CollectD<double>::Add);
 		CollectD<double>::Get(RData);
@@ -213,11 +213,11 @@ int UserInterface::Function4(ReadFile& f1) {
 
 	for (int i = 1; i < 13; i++)
 	{
-		//UserSpace::MyVector<double> result = f1.GetSpecificDataOfMonth(year, i, "S", true);
+		//UserSpace::MyVector<double> result = f1.GetMonthData(year, i, "S", true);
 		//double ave = MathUtils::CalculateAve(result);
 		//double stdev = MathUtils::CalculateStand(result);
 
-		Bst<double> result = f1.GetSpecificDataOfMonth(year, i, "S", true);
+		Bst<double> result = f1.GetMonthData(year, i, "S", true);
 		CollectD<double> cd;
 		result.InOrderTraversal(CollectD<double>::Add);
 		std::list<double> tmp;
@@ -237,10 +237,10 @@ int UserInterface::Function4(ReadFile& f1) {
 		}
 		result.DeleteTree(result.GetTree());
 
-		//result = f1.GetSpecificDataOfMonth(year, i, "T", true);
+		//result = f1.GetMonthData(year, i, "T", true);
 		//ave = MathUtils::CalculateAve(result);
 		//stdev = MathUtils::CalculateStand(result);
-		result = f1.GetSpecificDataOfMonth(year, i, "T", true);
+		result = f1.GetMonthData(year, i, "T", true);
 		CollectD<double>::Clear();
 		result.InOrderTraversal(CollectD<double>::Add);
 		tmp.clear();
@@ -259,7 +259,7 @@ int UserInterface::Function4(ReadFile& f1) {
 		result.DeleteTree(result.GetTree());
 
 
-		result = f1.GetSpecificDataOfMonth(year, i, "SR", false);
+		result = f1.GetMonthData(year, i, "SR", false);
 		CollectD<double>::Clear();
 		result.InOrderTraversal(CollectD<double>::Add);
 		tmp.clear();

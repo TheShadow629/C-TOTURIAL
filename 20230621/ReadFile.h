@@ -12,7 +12,7 @@
 #include "Time.h"
 #include "StoreSingleLineData.h"
 
-const int dayNums = 32;
+const int DayNums = 32;
 //typedef struct {
 //	Date d;
 //	Time t;
@@ -49,7 +49,7 @@ public:
 	ReadFile(std::multimap <Date, std::map<std::string, double>>& outData,string source="data_source.txt");
 	void Initialize(std::multimap <Date, std::map<std::string, double>>& outData);
 	//int GetColIndex(string colName);
-	Bst<double>& GetSpecificDataOfMonth(int year, int month, string colName, bool flag);
-	double GetSpecificDataOfDay(int year, int month, int day, string colName, bool flag);
+	Bst<double>& GetMonthData(int year, int month, string colName, bool flag);
+	double GetDayData(int year, int month, int day, string colName, bool flag);
 };
 #endif // ReadFile_h__
