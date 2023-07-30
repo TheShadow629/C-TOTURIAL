@@ -1,0 +1,7 @@
+<map id="Date::GetMonthNum" name="Date::GetMonthNum">
+<area shape="rect" id="node1" title=" " alt="" coords="245,85,387,112"/>
+<area shape="rect" id="node2" href="$class_wind_log_data.html#a4be2435a2585325743a46dc95c00a47b" title="Retrieves and displays the average wind speed, temperature, and solar radiation for a specific date u..." alt="" coords="5,5,197,32"/>
+<area shape="rect" id="node3" href="$class_wind_log_data.html#a8a74de6a8df7301285d747fb6b74e2de" title="Retrieves and displays the standard deviation of wind speed, temperature, and solar radiation for a s..." alt="" coords="18,56,185,83"/>
+<area shape="rect" id="node4" href="$structstd_1_1hash_3_01_date_01_4.html#aea405246f9d77e2aefb1ecb8910c18ab" title=" " alt="" coords="34,107,169,149"/>
+<area shape="rect" id="node5" href="$class_wind_rec_type.html#a2568f9ee40140b8d0a142d6afceb7cdd" title=" " alt="" coords="15,173,187,200"/>
+</map>

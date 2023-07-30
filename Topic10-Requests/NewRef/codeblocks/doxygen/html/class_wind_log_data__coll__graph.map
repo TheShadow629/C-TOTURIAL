@@ -1,0 +1,5 @@
+<map id="WindLogData" name="WindLogData">
+<area shape="rect" id="node1" title="Manages all wind logs data in a vector. Wind logs data can be read from file and inputted into the ve..." alt="" coords="5,725,219,1184"/>
+<area shape="rect" id="node2" href="$class_bst.html" title=" " alt="" coords="61,365,163,663"/>
+<area shape="rect" id="node3" href="$class_bst.html" title=" " alt="" coords="61,5,163,303"/>
+</map>

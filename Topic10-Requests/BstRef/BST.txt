@@ -1,0 +1,517 @@
+#ifndef BST_H_INCLUDED
+#define BST_H_INCLUDED
+//---------------------------------------------------------------------------------
+
+#include <iostream>
+
+using namespace std;
+
+//---------------------------------------------------------------------------------
+
+template <class T>
+struct node
+{     
+    node<T> *lChild;
+        
+    T m_data;
+        
+    node<T> *rChild;
+};
+
+template <class T>
+class BST
+{
+public:
+
+    const BST<T> & operator=(const BST<T>&);
+
+
+    bool IsEmpty() const;
+
+
+    void InorderTraversal() const;
+
+
+    void InorderTraversal(void (*visit) (T& item)) const;
+
+
+    void InorderTraversal(void(*visit) (T&, float&), float& sum) const; // calculate sum
+
+
+    void InorderTraversal(void(*visit) (T&, const float&, float&), const float& average, float& sum) const; // Calculate standard Deviation
+
+
+    void PreorderTraversal() const;
+
+	
+	void PostorderTraversal() const;
+
+
+    int TreeHeight() const;
+
+
+    int TreeNodeCount() const;
+
+
+    void DestroyTree();
+
+
+    void DeleteNode(const T& deleteItem);
+
+
+    bool Search(const T& searchItem) const;
+
+
+    void Insert(const T& insertElement);
+
+
+    BST(const BST<T>& otherTree);
+
+
+    BST();
+
+
+    ~BST();
+
+protected:
+
+    node<T> *root;
+
+private:
+
+    void CopyTree(node<T>* &copiedTreeRoot, node<T>* otherTreeRoot);
+
+
+    void Destroy(node<T>* &p);
+
+
+    void DeleteFromTree(node<T>* &p);
+
+
+    void Inorder(node<T> *p) const;
+
+
+    void Inorder(node<T>* p, void (*visit) (T& item)) const;
+
+
+    void Inorder(node<T> *p, void(*visit) (T&, float&), float& sum) const;
+
+
+    void Inorder(node<T> *p, void(*visit) (T&, const float&, float&), const float& average, float& sum) const;
+
+
+    void Preorder(node<T> *p) const;
+
+
+    void Postorder(node<T> *p) const;
+
+
+    int Height(node<T> *p) const;
+
+
+    int NodeCount(node<T> *p) const;
+    };
+
+template <class T>
+bool BST<T>::IsEmpty() const
+{
+    return(root == nullptr);
+}
+
+template <class T>
+BST<T>::BST()
+{
+    root = nullptr;
+}
+
+template <class T>
+void BST<T>::InorderTraversal() const
+{
+    Inorder(root);
+}
+
+template <class T>
+void BST<T>::Inorder(node<T>* p, void (*Visit) (T& item)) const
+{
+    if (p != nullptr)
+    {
+        Inorder(p->lChild, *Visit);
+        (*Visit)(p->m_data);
+        Inorder(p->rChild, *Visit);
+    }
+}
+
+// Check this
+template <class T>
+void BST<T>::DeleteFromTree(node<T>* &p)
+{
+    node<T> *current;
+    node<T> *trailCurrent;
+    node<T> *temp;
+
+    if(p == nullptr)
+        cout << "Error: The node to be deleted does not exist." << endl;
+    else if(p->lChild == nullptr && p->rChild == nullptr)
+    {
+        temp = p;
+        p = nullptr;
+        delete temp;
+    }
+    else if(p->lChild == nullptr)
+    {
+        temp = p;
+        p = temp->rChild;
+        delete temp;
+    }
+    else if(p->rChild == nullptr)
+    {
+        temp = p;
+        p = temp->lChild;
+        delete temp;
+    }
+    else
+    {
+        current = p->lChild;
+        trailCurrent = nullptr;
+
+        while(current->rChild != nullptr)
+        {
+            trailCurrent = current;
+            current = current->rChild;
+        }//End while
+
+        p->m_data = current->m_data;
+
+        if(trailCurrent == nullptr)
+            p->lChild = current->lChild;
+        else
+            trailCurrent->rChild = current->lChild;
+
+        delete current;
+    }// End else
+}//End DeleteFromTree
+
+template <class T>
+void BST<T>::InorderTraversal(void (*Visit) (T& item)) const
+{
+    Inorder(root, *Visit);
+}
+
+template <class T>
+void BST<T>::Inorder(node<T> *p, void(*Visit) (T&, float&), float& sum) const
+{
+    if (p != nullptr)
+    {
+        Inorder(p->lChild, *Visit, sum);
+        (*Visit)(p->m_data, sum);
+        Inorder(p->rChild, *Visit, sum);
+    }
+}
+
+template <class T>
+void BST<T>::InorderTraversal(void(*Visit) (T&, float&), float& sum) const
+{
+    Inorder(root, *Visit, sum);
+}
+
+template <class T>
+void BST<T>::Inorder(node<T> *p, void(*Visit) (T&, const float&, float&), const float& average, float& sum) const
+{
+    if (p != nullptr)
+    {
+        Inorder(p->lChild, *Visit, average, sum);
+        (*Visit)(p->m_data, average, sum);
+        Inorder(p->rChild, *Visit, average, sum);
+    }
+}
+
+template <class T>
+void BST<T>::InorderTraversal(void(*Visit) (T&, const float&, float&), const float& average, float& sum) const
+{
+    Inorder(root, *Visit, average, sum);
+}
+
+template <class T>
+void BST<T>::PreorderTraversal() const
+{
+    Preorder(root);
+}
+
+template <class T>
+void BST<T>::PostorderTraversal() const
+{
+    Postorder(root);
+}
+
+template <class T>
+int BST<T>::TreeHeight() const
+{
+    return Height(root);
+}
+
+template <class T>
+int BST<T>::TreeNodeCount() const
+{
+    return NodeCount(root);
+}
+
+template <class T>
+int BST<T>::NodeCount(node<T> *p) const
+{
+    int x;
+    int y;
+    if(p != nullptr)
+    {
+        x = NodeCount(p->lChild);
+        y = NodeCount(p->rChild);
+        return x + y + 1;
+    }
+    return 0;
+}
+
+template <class T>
+void BST<T>::Inorder(node<T> *p) const
+{
+    if(p != nullptr)
+    {
+        Inorder(p->lChild);
+        cout << p->m_data << endl;
+        Inorder(p->rChild);
+    }
+}
+
+template <class T>
+void BST<T>::Preorder(node<T> *p) const
+{
+    if(p != nullptr)
+    {
+        cout << p->m_data << endl;
+        Preorder(p->lChild);
+        Preorder(p->rChild);
+    }
+}
+
+template <class T>
+void BST<T>::Postorder(node<T> *p) const
+{
+    if(p != nullptr)
+    {
+        Postorder(p->lChild);
+        Postorder(p->rChild);
+        cout << p->m_data << " ";
+    }
+}
+
+template <class T>
+int BST<T>::Height(node<T> *p) const
+{
+    if(p == nullptr)
+    {
+        return 0;
+    }
+    else
+    {
+        return 1 + max(Height(p->lChild), Height(p->rChild));
+    }
+}
+
+template <class T>
+void BST<T>::CopyTree(node<T>* &copiedTreeRoot, node<T>* otherTreeRoot)
+{
+    if(otherTreeRoot == nullptr)
+    {
+        copiedTreeRoot = nullptr;
+    }
+    else
+    {
+        copiedTreeRoot = new node<T>;
+        copiedTreeRoot->m_data = otherTreeRoot->m_data;
+        CopyTree(copiedTreeRoot->lChild, otherTreeRoot->lChild);
+        CopyTree(copiedTreeRoot->rChild, otherTreeRoot->rChild);
+    }
+}
+
+template <class T>
+void BST<T>::Destroy(node<T>* &p)
+{
+    if(p != nullptr)
+    {
+        Destroy(p->lChild);
+        Destroy(p->rChild);
+        delete p;
+        p = nullptr;
+    }
+}
+
+template <class T>
+void BST<T>::DestroyTree()
+{
+    Destroy(root);
+}
+
+template <class T>
+BST<T>::BST(const BST<T>& otherTree)
+{
+    if(otherTree.root == nullptr)
+    {
+        root = nullptr;
+    }
+    else
+    {
+        CopyTree(root, otherTree.root);
+    }
+}
+
+template <class T>
+BST<T>::~BST()
+{
+    Destroy(root);
+}
+
+template <class T>
+const BST<T>&BST<T>::operator=(const BST<T>& otherTree)
+{
+    if(this != &otherTree)
+    {
+        if(root != nullptr)
+        {
+            Destroy(root);
+        }
+        if(otherTree.root == nullptr)
+        {
+            root = nullptr;
+        }
+        else
+        {
+            CopyTree(root, otherTree.root);
+        }
+    }
+    return *this;
+}
+
+template <class T>
+bool BST<T>::Search(const T& searchItem) const
+{
+    node<T> *current;
+    bool found = false;
+
+    if (root == nullptr)
+    {
+        cout << "Cannot search an empty tree." << endl;
+    }
+    else
+    {
+        current = root;
+
+        while(current != nullptr && !found)
+        {
+            if(current->m_data == searchItem)
+            {
+                found = true;
+            }
+            else if(current->m_data > searchItem)
+            {
+                current = current->lChild;
+            }
+            else
+            {
+                current = current->rChild;
+            }
+        }
+    }
+
+    return found;
+}
+
+template <class T>
+void BST<T>::Insert(const T& insertElement)
+{
+    node<T> *current; //pointer to traverse the tree
+    node<T> *trailCurrent = nullptr; //pointer behind current
+    node<T> *newNode; //pointer to create the node
+
+    newNode = new node<T>;
+    newNode->m_data = insertElement;
+    newNode->lChild = nullptr;
+    newNode->rChild = nullptr;
+
+    if (root == nullptr)
+        root = newNode;
+
+    else
+    {
+        current = root;
+
+        while (current != nullptr)
+        {
+            trailCurrent = current;
+
+            if (current->m_data == insertElement)
+            {
+                cout << "The item to be inserted is already ";
+                cout << "in the tree -- duplicates are not "
+                     << "allowed." << endl;
+                cout << insertElement << endl;
+                return;
+            }
+
+            else if (current->m_data > insertElement)
+                current = current->lChild;
+            else
+                current = current->rChild;
+        }//end while
+
+        if (trailCurrent->m_data > insertElement)
+            trailCurrent->lChild = newNode;
+        else
+            trailCurrent->rChild = newNode;
+    } // End else
+} //End Insert
+
+// Check this
+template <class T>
+void BST<T>::DeleteNode(const T& deleteItem)
+{
+    node<T> *current;
+    node<T> *trailCurrent;
+    bool found = false;
+
+    if(root == nullptr)
+    {
+        cout << "Cannot delete from an empty tree." << endl;
+    }
+    else
+    {
+        current = root;
+        trailCurrent = root;
+
+        while(current != nullptr && !found)
+        {
+            if(current->m_data == deleteItem)
+                found = true;
+            else
+            {
+                trailCurrent = current;
+                if(current->m_data > deleteItem)
+                    current = current->lChild;
+                else
+                    current = current->rChild;
+            }
+        }// End while
+
+        if(current == nullptr)
+            cout << "The item to be deleted is not in the tree." << endl;
+        else if(found)
+        {
+            if(current == root)
+                DeleteFromTree(root);
+            else if(trailCurrent->m_data > deleteItem)
+                DeleteFromTree(trailCurrent->lChild);
+            else
+                DeleteFromTree(trailCurrent->rChild);
+        }
+        else
+            cout << "This item to be deleted is not in the tree." << endl;
+    }
+}// End DeleteNode
+#endif // BST_H_INCLUDED

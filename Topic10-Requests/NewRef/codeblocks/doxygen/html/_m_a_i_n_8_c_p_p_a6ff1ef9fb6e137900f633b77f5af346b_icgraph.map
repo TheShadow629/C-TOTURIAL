@@ -1,0 +1,8 @@
+<map id="numToMonth" name="numToMonth">
+<area shape="rect" id="node1" title=" " alt="" coords="369,81,467,108"/>
+<area shape="rect" id="node2" href="$class_wind_log_data.html#adf574d880fe7ec1d1ef59a0423261fcb" title="Prints the total solar radiation each month for specific year." alt="" coords="104,5,321,32"/>
+<area shape="rect" id="node4" href="$class_wind_log_data.html#a2b74130cf22a8d8e440f2da6b9bc91ec" title="Prints the wind speed and temperature for a specific year and month." alt="" coords="105,56,320,83"/>
+<area shape="rect" id="node5" href="$class_wind_log_data.html#a6635c3bdeb19b21f8843e228a9f5243b" title="Prints the wind speed and temperature for a specific year." alt="" coords="109,107,317,133"/>
+<area shape="rect" id="node6" href="$class_wind_log_data.html#ad2ae509367d8f6e1f30f040199b94ac8" title="Writes wind speed, temperature, solar radiation, date and time to CSV file for a specific year." alt="" coords="125,157,301,184"/>
+<area shape="rect" id="node3" href="$_m_a_i_n_8_c_p_p.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,81,56,108"/>
+</map>

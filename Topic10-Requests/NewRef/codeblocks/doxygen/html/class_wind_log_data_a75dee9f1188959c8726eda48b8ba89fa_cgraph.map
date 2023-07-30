@@ -1,0 +1,7 @@
+<map id="WindLogData::getTotalSolarRadiationMonth" name="WindLogData::getTotalSolarRadiationMonth">
+<area shape="rect" id="node1" title="Get the total solar radiation for the specific month and year." alt="" coords="5,74,189,115"/>
+<area shape="rect" id="node2" href="$class_wind_rec_type.html#a9008ed99195dcf477d46322e340f4b81" title=" " alt="" coords="251,5,407,32"/>
+<area shape="rect" id="node3" href="$class_date.html#a7b972592b87cb8373b127809a2672b9d" title=" " alt="" coords="258,56,399,83"/>
+<area shape="rect" id="node4" href="$class_wind_rec_type.html#aa9713a93aaa63e8c3acc4d55fb28c4d6" title=" " alt="" coords="237,107,420,133"/>
+<area shape="rect" id="node5" href="$class_date.html#ad3519b229e188cca67c764352929ea83" title=" " alt="" coords="276,157,381,184"/>
+</map>

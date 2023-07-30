@@ -1,0 +1,2 @@
+﻿x64\Debug\ReadWindLog.obj : warning LNK4042: 对象被多次指定；已忽略多余的指定
+  stringLab.vcxproj -> C:\Users\laptop\Desktop\Code\x64\Debug\stringLab.exe

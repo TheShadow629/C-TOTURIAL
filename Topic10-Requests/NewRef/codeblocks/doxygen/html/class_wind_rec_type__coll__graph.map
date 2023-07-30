@@ -1,0 +1,5 @@
+<map id="WindRecType" name="WindRecType">
+<area shape="rect" id="node1" title="Logs the data of wind speed, solar radiation, ambient temperature at a specific time and date." alt="" coords="52,365,208,648"/>
+<area shape="rect" id="node2" href="$class_time.html" title="It stores the Time." alt="" coords="5,57,111,251"/>
+<area shape="rect" id="node3" href="$class_date.html" title="It stores a date. Specifically in the format of dd/mm/yyyy." alt="" coords="135,5,269,303"/>
+</map>

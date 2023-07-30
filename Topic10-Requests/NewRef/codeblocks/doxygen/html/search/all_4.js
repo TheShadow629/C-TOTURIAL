@@ -1,0 +1,24 @@
+var searchData=
+[
+  ['getambientairtemp_20',['getAmbientAirTemp',['../class_wind_rec_type.html#af79b169b1a97c7049a0dcc737aaca3f8',1,'WindRecType']]],
+  ['getaveragebst_21',['getAverageBst',['../class_wind_log_data.html#a4be2435a2585325743a46dc95c00a47b',1,'WindLogData']]],
+  ['getaveragesolarrad_22',['getAverageSolarRad',['../class_wind_log_data.html#a004162cd01420efac7dfb4cd8577d432',1,'WindLogData']]],
+  ['getaveragespeed_23',['getAverageSpeed',['../class_wind_log_data.html#adc029bebe1c568795e745edaf9584a52',1,'WindLogData']]],
+  ['getaveragetemp_24',['getAverageTemp',['../class_wind_log_data.html#a16151959152b7076682d89970af7db78',1,'WindLogData']]],
+  ['getdate_25',['getDate',['../class_wind_rec_type.html#a9008ed99195dcf477d46322e340f4b81',1,'WindRecType']]],
+  ['getday_26',['GetDay',['../class_date.html#a6645ca88c5f417544415abe127dbeaba',1,'Date']]],
+  ['gethour_27',['getHour',['../class_time.html#a9f4cb3b07cda178f34919e54589c5e0f',1,'Time']]],
+  ['getminute_28',['getMinute',['../class_time.html#ad21570ba6733ee3a72ed866345c9c277',1,'Time']]],
+  ['getmonthname_29',['GetMonthName',['../class_date.html#a05267d3223899fa8f1c99449dd172252',1,'Date']]],
+  ['getmonthnum_30',['GetMonthNum',['../class_date.html#a7b972592b87cb8373b127809a2672b9d',1,'Date']]],
+  ['getsize_31',['getSize',['../class_vector.html#a63b39d8e77cfa6b32bfd9bbcb515f691',1,'Vector']]],
+  ['getsolarrad_32',['getSolarRad',['../class_wind_rec_type.html#aa9713a93aaa63e8c3acc4d55fb28c4d6',1,'WindRecType']]],
+  ['getspeed_33',['getSpeed',['../class_wind_rec_type.html#abb28b25d126f5194750fb6ead9b8117f',1,'WindRecType']]],
+  ['getstandarddeviationsolarrad_34',['getStandardDeviationSolarRad',['../class_wind_log_data.html#a74c78784a82049adb696863a236c8aa1',1,'WindLogData']]],
+  ['getstandarddeviationspeed_35',['getStandardDeviationSpeed',['../class_wind_log_data.html#a068613b33fcb8198eb2c423b0f699b9a',1,'WindLogData']]],
+  ['getstandarddeviationtemp_36',['getStandardDeviationTemp',['../class_wind_log_data.html#a538dadf053d5b8e94884787672a092a9',1,'WindLogData']]],
+  ['getstdbst_37',['getStdBst',['../class_wind_log_data.html#a8a74de6a8df7301285d747fb6b74e2de',1,'WindLogData']]],
+  ['gettime_38',['getTime',['../class_wind_rec_type.html#abcfdc6723e2133efd7f9e878c6e541af',1,'WindRecType']]],
+  ['gettotalsolarradiationmonth_39',['getTotalSolarRadiationMonth',['../class_wind_log_data.html#a75dee9f1188959c8726eda48b8ba89fa',1,'WindLogData']]],
+  ['getyear_40',['GetYear',['../class_date.html#ad3519b229e188cca67c764352929ea83',1,'Date']]]
+];

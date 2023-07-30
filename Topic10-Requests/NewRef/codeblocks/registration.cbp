@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="registration" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/registration" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/registration" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="classes/BST.H">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="classes/DATE.CPP" />
+		<Unit filename="classes/DATE.H" />
+		<Unit filename="classes/MAIN.CPP" />
+		<Unit filename="classes/NODE.H">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="classes/TIME.CPP" />
+		<Unit filename="classes/TIME.H">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="classes/VECTOR.H">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="classes/WINDLOGDATA.CPP" />
+		<Unit filename="classes/WINDLOGDATA.H" />
+		<Unit filename="classes/WINDRECTYPE.CPP" />
+		<Unit filename="classes/WINDRECTYPE.H" />
+		<Unit filename="classes/unitTest/BstTest.hpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="classes/unitTest/DateTest.hpp" />
+		<Unit filename="classes/unitTest/NodeTest.hpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="classes/unitTest/TestLib.hpp" />
+		<Unit filename="classes/unitTest/TestMain.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="classes/unitTest/TimeTest.hpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="classes/unitTest/VectorTest.hpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Extensions>
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

@@ -1,0 +1,11 @@
+Evaluation
+
+== NOT WORKING == 
+
+
+== WORKING ==
+BST is able to insert and read the Date type from data file. Test is conducted in BstTest.hpp
+
+
+
+

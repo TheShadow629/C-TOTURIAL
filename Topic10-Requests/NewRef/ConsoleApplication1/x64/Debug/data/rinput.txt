@@ -1,0 +1,3 @@
+12345678, 1, 2
+ICT283, Data Structures And Abstractions, 3, 90, 30/06/2016
+ICT289, Computer Graphics, 3, 97, 30/12/2016

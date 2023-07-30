@@ -1,0 +1,4 @@
+<map id="WindLogData::writeToCSV" name="WindLogData::writeToCSV">
+<area shape="rect" id="node1" title="Writes wind speed, temperature, solar radiation, date and time to CSV file for a specific year." alt="" coords="5,5,181,32"/>
+<area shape="rect" id="node2" href="$_m_a_i_n_8_c_p_p.html#a6ff1ef9fb6e137900f633b77f5af346b" title=" " alt="" coords="229,5,327,32"/>
+</map>

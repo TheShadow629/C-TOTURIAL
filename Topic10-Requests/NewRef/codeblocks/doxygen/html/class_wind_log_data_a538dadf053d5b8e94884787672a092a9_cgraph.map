@@ -1,0 +1,6 @@
+<map id="WindLogData::getStandardDeviationTemp" name="WindLogData::getStandardDeviationTemp">
+<area shape="rect" id="node1" title="Get the standard deviation for temperature of the year and month." alt="" coords="5,49,184,90"/>
+<area shape="rect" id="node2" href="$class_wind_rec_type.html#a9008ed99195dcf477d46322e340f4b81" title=" " alt="" coords="232,5,388,32"/>
+<area shape="rect" id="node3" href="$class_date.html#a7b972592b87cb8373b127809a2672b9d" title=" " alt="" coords="239,56,381,83"/>
+<area shape="rect" id="node4" href="$class_date.html#ad3519b229e188cca67c764352929ea83" title=" " alt="" coords="257,107,363,133"/>
+</map>

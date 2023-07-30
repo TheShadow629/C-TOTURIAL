@@ -1,0 +1,7 @@
+<map id="WindLogData::getAverageTemp" name="WindLogData::getAverageTemp">
+<area shape="rect" id="node1" title="Get the average temperature for the specific month and year." alt="" coords="5,81,209,108"/>
+<area shape="rect" id="node2" href="$class_wind_rec_type.html#af79b169b1a97c7049a0dcc737aaca3f8" title=" " alt="" coords="257,5,483,32"/>
+<area shape="rect" id="node3" href="$class_wind_rec_type.html#a9008ed99195dcf477d46322e340f4b81" title=" " alt="" coords="292,56,448,83"/>
+<area shape="rect" id="node4" href="$class_date.html#a7b972592b87cb8373b127809a2672b9d" title=" " alt="" coords="299,107,441,133"/>
+<area shape="rect" id="node5" href="$class_date.html#ad3519b229e188cca67c764352929ea83" title=" " alt="" coords="317,157,423,184"/>
+</map>

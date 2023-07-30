@@ -1,0 +1,8 @@
+<map id="operator&lt;&lt;" name="operator&lt;&lt;">
+<area shape="rect" id="node1" title="Operator overload for output." alt="" coords="5,107,91,133"/>
+<area shape="rect" id="node2" href="$class_registration.html#ab237a7fea4bcff479f11eff1345cdc8f" title="Computes the sum of credit of the unit." alt="" coords="139,5,331,32"/>
+<area shape="rect" id="node3" href="$class_registration.html#a729a2d6ae08aefd2dbe10ec7b3e5ce48" title="Get the number of units to display." alt="" coords="157,56,312,83"/>
+<area shape="rect" id="node4" href="$class_registration.html#af949d02ac47d32174b1fa92351150661" title="Get the Unit in the specified index of the array list." alt="" coords="156,107,313,133"/>
+<area shape="rect" id="node5" href="$class_registration.html#af348ae66c68aa0a60b72ccc8bfc1d835" title="Get the semester of the units." alt="" coords="147,157,323,184"/>
+<area shape="rect" id="node6" href="$class_registration.html#ac8d23eb46086e295665457d8eae30a99" title="Get the number of students." alt="" coords="147,208,322,235"/>
+</map>

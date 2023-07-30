@@ -1,0 +1,6 @@
+<map id="Registration" name="Registration">
+<area shape="rect" id="node1" title="It stores information about the student&#39;s units&#39; result in the specified semester." alt="" coords="67,608,213,861"/>
+<area shape="rect" id="node2" href="$class_result.html" title="It stores a unit, its marks and marked date of the unit." alt="" coords="80,321,200,545"/>
+<area shape="rect" id="node3" href="$class_unit.html" title="It stores unit information." alt="" coords="5,27,125,237"/>
+<area shape="rect" id="node4" href="$class_date.html" title="It stores a date. Specifically in the format of dd/mm/yyyy." alt="" coords="149,5,283,259"/>
+</map>

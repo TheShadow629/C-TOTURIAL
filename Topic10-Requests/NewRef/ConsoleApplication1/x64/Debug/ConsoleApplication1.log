@@ -1,0 +1,15 @@
+﻿  DATE.CPP
+  MAIN.CPP
+C:\Users\laptop\Desktop\NewRef\codeblocks\classes\VECTOR.H(160,25): warning C4267: “return”: 从“size_t”转换到“const int”，可能丢失数据
+C:\Users\laptop\Desktop\NewRef\codeblocks\classes\VECTOR.H(159,1): message : 在编译 类 模板 成员函数“const int Vector<std::string>::getSize(void) const”时
+C:\Users\laptop\Desktop\NewRef\codeblocks\classes\MAIN.CPP(123,5): message : 请参阅 "readFiles" 中对 "Vector<std::string>::getSize" 的第一个引用
+C:\Users\laptop\Desktop\NewRef\codeblocks\classes\MAIN.CPP(115,20): message : 查看对正在编译的 类 模板 实例化“Vector<std::string>”的引用
+  TIME.CPP
+  WINDLOGDATA.CPP
+C:\Users\laptop\Desktop\NewRef\codeblocks\classes\VECTOR.H(160,25): warning C4267: “return”: 从“size_t”转换到“const int”，可能丢失数据
+C:\Users\laptop\Desktop\NewRef\codeblocks\classes\VECTOR.H(159,1): message : 在编译 类 模板 成员函数“const int Vector<WindRecType>::getSize(void) const”时
+C:\Users\laptop\Desktop\NewRef\codeblocks\classes\WINDLOGDATA.CPP(190,5): message : 请参阅 "WindLogData::sPCC" 中对 "Vector<WindRecType>::getSize" 的第一个引用
+C:\Users\laptop\Desktop\NewRef\codeblocks\classes\WINDLOGDATA.h(167,25): message : 查看对正在编译的 类 模板 实例化“Vector<WindRecType>”的引用
+  WINDRECTYPE.CPP
+  正在生成代码...
+  ConsoleApplication1.vcxproj -> C:\Users\laptop\Desktop\NewRef\ConsoleApplication1\x64\Debug\ConsoleApplication1.exe

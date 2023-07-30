@@ -1,0 +1,6 @@
+<map id="Registration::print_registrations" name="Registration::print_registrations">
+<area shape="rect" id="node1" title=" " alt="" coords="5,49,129,90"/>
+<area shape="rect" id="node2" href="$class_registration.html#a729a2d6ae08aefd2dbe10ec7b3e5ce48" title="Get the number of units to display." alt="" coords="188,5,343,32"/>
+<area shape="rect" id="node3" href="$class_registration.html#af348ae66c68aa0a60b72ccc8bfc1d835" title="Get the semester of the units." alt="" coords="177,56,353,83"/>
+<area shape="rect" id="node4" href="$class_registration.html#ac8d23eb46086e295665457d8eae30a99" title="Get the number of students." alt="" coords="178,107,353,133"/>
+</map>

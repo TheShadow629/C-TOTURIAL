@@ -1,0 +1,10 @@
+<map id="WindLogData::getAverageBst" name="WindLogData::getAverageBst">
+<area shape="rect" id="node1" title="Retrieves and displays the average wind speed, temperature, and solar radiation for a specific date u..." alt="" coords="5,157,197,184"/>
+<area shape="rect" id="node2" href="$class_vector.html#a5c85bf16e25d19dad6d685b82d0ccc57" title=" " alt="" coords="317,5,399,32"/>
+<area shape="rect" id="node3" href="$class_wind_rec_type.html#af79b169b1a97c7049a0dcc737aaca3f8" title=" " alt="" coords="245,56,471,83"/>
+<area shape="rect" id="node4" href="$class_date.html#a7b972592b87cb8373b127809a2672b9d" title=" " alt="" coords="287,107,429,133"/>
+<area shape="rect" id="node5" href="$class_vector.html#a63b39d8e77cfa6b32bfd9bbcb515f691" title=" " alt="" coords="302,157,414,184"/>
+<area shape="rect" id="node6" href="$class_wind_rec_type.html#aa9713a93aaa63e8c3acc4d55fb28c4d6" title=" " alt="" coords="267,208,449,235"/>
+<area shape="rect" id="node7" href="$class_wind_rec_type.html#abb28b25d126f5194750fb6ead9b8117f" title=" " alt="" coords="275,259,441,285"/>
+<area shape="rect" id="node8" href="$class_date.html#ad3519b229e188cca67c764352929ea83" title=" " alt="" coords="305,309,411,336"/>
+</map>

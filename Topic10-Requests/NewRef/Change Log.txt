@@ -1,0 +1,20 @@
+Lab 8:
+Removed getCapacity
+Removed setCapacity
+Removed vectorResize
+Added in invalidData flag inside WINDLOGDATA.CPP readFile method 
+Updated doxygen html 
+Removed unnecessary numToMonth function in main
+Updated numToMonth function in WINDLOGDATA.CPP so that it uses array
+
+Lab 9:
+Added NODE.H with doxygen comments
+Added BST.H with doxygen comments
+Added NODETEST.HPP
+Added BSTTEST.HPP
+Updated DATE class to include operators > and < 
+Updated Doxygen HTML
+
+Lab 10:
+Added methods to WindRecType > and < . Date and Time should have the > and < too
+IDK ANYMORE
