@@ -63,6 +63,7 @@ public:
     double CalculateArea()  {  return m_width * m_height; }
 };
 
+
 //在这个示例中，基类 `Shape` 是一个抽象类，定义了一个纯虚函数 `CalculateArea`。派生类 `Rectangle` 特化为 `Shape` 的子类，并实现了 `CalculateArea` 方法。
 
 //2. 实现（Realisation）示例代码：
@@ -71,12 +72,13 @@ public:
 class Flyable {
 public:
     virtual void Fly() = 0;
+
 };
 
 // 鸟类 Bird，实现了飞行接口
 class Bird : public Flyable {
 public:
-    void Fly() override {
+    void Fly() override {//对接口虚函数进行覆写
         // 鸟的飞行实现
         std::cout << "Bird is flying." << std::endl;
     }

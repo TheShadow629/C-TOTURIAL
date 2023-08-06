@@ -13,13 +13,13 @@ public:
     Vector() {}
 
     // Constructor with an initial size
-    explicit Vector(size_t size) : m_data(size) {}
+    Vector(size_t size){ m_data(size); }
 
     // Constructor with initial size and default value
-    Vector(size_t size, const T& value) : m_data(size, value) {}
+    Vector(size_t size, const T& value) { m_data(size, value); }
 
     // Copy constructor
-    Vector(const Vector& other) : m_data(other.m_data) {}
+    Vector(const Vector& other) { m_data(other.m_data); }
 
     // Assignment operator
     Vector& operator=(const Vector& other) {

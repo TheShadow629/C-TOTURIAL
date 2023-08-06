@@ -1,7 +1,7 @@
 
 #include <iostream>
 #include <vector>
-
+//0 1 1 2 3 5 8 13 
 std::vector<int> fibonacci(int n) {
     std::vector<int> fibSeries;
 
