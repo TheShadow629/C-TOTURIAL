@@ -36,16 +36,41 @@ public:
 
 int main() {
     // Create base class pointers
-    Shape* shape1 = new Circle();
-    Shape* shape2 = new Square();
+    int size = 2;
+    Shape** shapes = new Shape * [size];
+    shapes[0] = new Circle();
+    shapes[1] = new Square();
+    for(int i=0;i<size;i++)
+    {
+        shapes[i]->draw();
+        delete shapes[i];
+    }
+
+
+    int num = 10;
+    int* p = nullptr;
+    p = &num;
+    std::cout << p << " " << *p << std::endl;
+
+    int* nums = new int[100];
+    for(int i=0;i<100;i++)
+    {
+        nums[i] = i;
+        std::cout << nums[i];
+    }
+    delete[] nums;
+
+
+    //Shape* pointers[2] = { nullptr,nullptr };
+    //pointers[0] = new Circle();
+    //pointers[1] = new Square();
 
     // Call the draw() function
-    shape1->draw(); // Calls the derived class function for Circle
-    shape2->draw(); // Calls the derived class function for Square
-
+    //pointers[0]->draw(); // Calls the derived class function for Circle
+    //pointers[1]->draw(); // Calls the derived class function for Square
     // Clean up memory
-    delete shape1;
-    delete shape2;
+    //delete pointers[0];
+    //delete pointers[1];
 
     return 0;
 }

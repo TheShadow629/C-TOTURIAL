@@ -128,6 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="10.cpp" />
+    <ClCompile Include="14New.cpp" />
     <ClCompile Include="17.cpp" />
     <ClCompile Include="18.cpp" />
     <ClCompile Include="2.cpp" />
@@ -185,23 +186,26 @@
     <ClCompile Include="55.cpp" />
     <ClCompile Include="61.cpp" />
     <ClCompile Include="62.cpp" />
-    <ClCompile Include="源10.cpp" />
+    <ClCompile Include="ListToStack.cpp" />
+    <ClCompile Include="MapTest.cpp" />
+    <ClCompile Include="48-51SetTest.cpp" />
+    <ClCompile Include="71.cpp" />
     <ClCompile Include="56.cpp" />
     <ClCompile Include="57.cpp" />
     <ClCompile Include="58.cpp" />
     <ClCompile Include="59.cpp" />
     <ClCompile Include="60.cpp" />
-    <ClCompile Include="源11.cpp" />
-    <ClCompile Include="源12.cpp" />
+    <ClCompile Include="72.cpp" />
+    <ClCompile Include="73.cpp" />
     <ClCompile Include="源13.cpp" />
     <ClCompile Include="63.cpp" />
     <ClCompile Include="64.cpp" />
     <ClCompile Include="65.cpp" />
     <ClCompile Include="66.cpp" />
-    <ClCompile Include="源6.cpp" />
-    <ClCompile Include="源7.cpp" />
-    <ClCompile Include="源8.cpp" />
-    <ClCompile Include="源9.cpp" />
+    <ClCompile Include="67.cpp" />
+    <ClCompile Include="68.cpp" />
+    <ClCompile Include="69.cpp" />
+    <ClCompile Include="70.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

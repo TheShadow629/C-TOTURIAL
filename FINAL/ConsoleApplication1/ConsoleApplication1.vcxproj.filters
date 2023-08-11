@@ -198,16 +198,16 @@
     <ClCompile Include="60.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="源7.cpp">
+    <ClCompile Include="68.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="源8.cpp">
+    <ClCompile Include="69.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="源9.cpp">
+    <ClCompile Include="70.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="源10.cpp">
+    <ClCompile Include="71.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="61.cpp">
@@ -228,16 +228,28 @@
     <ClCompile Include="66.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="源6.cpp">
+    <ClCompile Include="67.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="源11.cpp">
+    <ClCompile Include="72.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="源12.cpp">
+    <ClCompile Include="73.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="源13.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="14New.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ListToStack.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MapTest.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="48-51SetTest.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

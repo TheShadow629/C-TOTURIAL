@@ -17,16 +17,13 @@ public:
         std::cout << "Area: " << calculateArea() << std::endl;
     }
 
-    virtual int calculateArea() {
-        return 0;
-    }
+    virtual int calculateArea() = 0;
 };
 
 // Derived class
 class Rectangle : public Shape {
 public:
     Rectangle(int w, int h) : Shape(w, h) {}
-
     int calculateArea() override {
         return width * height;
     }

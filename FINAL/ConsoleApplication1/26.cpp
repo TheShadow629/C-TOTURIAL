@@ -1,4 +1,7 @@
-//Here's an implementation of a minimal but complete template Stack class and template Queue class in C++. I have also provided separate modular unit tests for each class to demonstrate their functionality. The tests include checking for normal function and attempting to break the data structure by providing incorrect inputs or testing edge cases.
+//Here's an implementation of a minimal but complete template Stack class and template Queue class in C++.
+//I have also provided separate modular unit tests for each class to demonstrate their functionality.
+//The tests include checking for normal function and attempting to break the data structure by providing
+//incorrect inputs or testing edge cases.
 
 #include <iostream>
 
@@ -11,18 +14,29 @@ private:
     int topIndex;
 
 public:
-    Stack() : capacity(10), topIndex(-1) {
+    Stack() : capacity(50), topIndex(-1) {
         data = new T[capacity];
     }
 
     ~Stack() {
         delete[] data;
+        data = nullptr;
     }
 
     void push(T element) {
+        //if (topIndex == capacity - 1) {
+        //    std::cout << "Stack overflow\n";
+        //    return;
+        //}
         if (topIndex == capacity - 1) {
-            std::cout << "Stack overflow\n";
-            return;
+            T* newData= new T[capacity*2];
+            for(int i=0;i< capacity;i++)
+            {
+                newData[i] = data[i];
+            }
+            capacity = capacity * 2;
+            delete[] data;
+            data = newData;
         }
         topIndex++;
         data[topIndex] = element;
@@ -79,12 +93,13 @@ private:
     int rearIndex;
 
 public:
-    Queue() : capacity(10), frontIndex(-1), rearIndex(-1) {
+    Queue() : capacity(50), frontIndex(-1), rearIndex(-1) {
         data = new T[capacity];
     }
 
     ~Queue() {
         delete[] data;
+        data = nullptr;
     }
 
     void join(T element) {
@@ -92,8 +107,24 @@ public:
             std::cout << "Queue is full\n";
             return;
         }
+
+        if (rearIndex == capacity - 1) 
+        {
+            T* newData = new T[capacity*2];
+            for (int i = frontIndex,j=0; i < capacity; i++,j++)
+            {
+                newData[j] = data[i];
+            }
+            capacity = capacity * 2;
+            delete[] data;
+            data = newData;
+            rearIndex = rearIndex - frontIndex;
+            frontIndex = 0;
+        }
+
         if (frontIndex == -1 && rearIndex == -1)
             frontIndex++;
+
         rearIndex++;
         data[rearIndex] = element;
     }

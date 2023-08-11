@@ -21,6 +21,10 @@ void danglingPointerExample() {
     // The pointer 'ptr' now points to a memory location that is deallocated
     // and accessing or dereferencing it will result in undefined behavior
     std::cout << *ptr << std::endl;
+
+    int* pptr = new int(5);
+    delete pptr;
+    pptr = nullptr;
 }
 
 //In this example, the `createInt()` function creates a local integer variable `num` and assigns its address to the pointer

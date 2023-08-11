@@ -8,6 +8,9 @@
 ////
 ////Here's the pseudo-code for the merge sort algorithm:
 ////
+///
+///
+///1 2 3 4 5 6 7 8
 ////```
 ////function mergeSort(arr) :
 ////    if length of arr <= 1 :

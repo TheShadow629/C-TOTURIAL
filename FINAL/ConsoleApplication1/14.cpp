@@ -9,8 +9,8 @@
 class Model
 {
 private:
-    Vector<std::string> m_titles;
-
+    Vector<std::string> m_titles ;
+    //int* a;
 public:
     void ReadTitlesFromFile(const std::string& filename);
     Vector<std::string>& GetTitles();

@@ -75,4 +75,7 @@ int main() {
     return 0;
 }
 
-//Without a custom copy constructor, a shallow copy is made, resulting in `obj2` sharing the same memory location as `obj1`. Modifying the data using `obj1` affects `obj2` since they have the same memory location.Providing the required methods ensures proper memory management and creates separate copies of the dynamically allocated data, avoiding issues like double deletion and unwanted sharing of memory.
+//Without a custom copy constructor, a shallow copy is made, resulting in `obj2` sharing the same memory
+//location as `obj1`. Modifying the data using `obj1` affects `obj2` since they have the same memory location.
+//
+//Providing the required methods ensures proper memory management and creates separate copies of the dynamically allocated data, avoiding issues like double deletion and unwanted sharing of memory.

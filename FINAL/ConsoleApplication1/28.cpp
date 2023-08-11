@@ -2,14 +2,21 @@
 ////耦合：不同模块间的依赖紧密程度。
 ////https://blog.csdn.net/weixin_55267022/article/details/118070794
 ////模块化的组织方式：将整个系统分解为若干模块，模块之间通过接口传递信息，模块划分应尽可能高内聚，低耦合。
-//Cohesion and coupling are important concepts in software design that describe the relationships between modules or components of a system.A software designer aims to achieve appropriate levels of cohesion and coupling to ensure a well - designed, maintainable, and scalable software system.
+//Cohesion and coupling are important concepts in software design that describe the relationships
+//between modules or components of a system.A software designer aims to achieve appropriate levels
+//of cohesion and coupling to ensure a well - designed, maintainable, and scalable software system.
 //
 //1. Cohesion:
-//Cohesion refers to the measure of how closely the responsibilities and functionality of a module or component are related.It is a measure of how well the elements within a module work together to achieve a common purpose.High cohesion implies that a module has a clear, well - defined responsibility and contains related functions that work together to achieve that responsibility.
+//Cohesion refers to the measure of how closely the responsibilities and functionality of a module or component
+//are related.It is a measure of how well the elements within a module work together to achieve a common purpose.
+//High cohesion implies that a module has a clear, well - defined responsibility and contains related functions
+//that work together to achieve that responsibility.
 //
 //In terms of software design, achieving high cohesion is desired as it brings several benefits :
-//-Better maintainability : Modules with high cohesion are easier to understand, modify, and maintain because they are focused and have a clear purpose.
-//- Reusability : Modules with high cohesion are more likely to be reusable in other parts of the system or in future projects.
+//-Better maintainability : Modules with high cohesion are easier to understand, modify, and maintain because
+//they are focused and have a clear purpose.
+//- Reusability : Modules with high cohesion are more likely to be reusable in other parts of the system or in
+//future projects.
 //- Testability : Modules with high cohesion are easier to test as they have specific, well - defined functionality.
 //
 //Let's consider an example of a class that represents a shopping cart in an e-commerce system:
@@ -34,7 +41,8 @@
 //- Maintainability : Changes in one module have minimal impact on other modules, making the system easier to maintain.
 //- Reusability : Modules with low coupling can be reused in different contexts or systems more easily.
 //
-//Let's consider an example of two classes, `Customer` and `Order`, where the `Order` class depends on the `Customer` class:
+//Let's consider an example of two classes, `Customer` and `Order`,
+//where the `Order` class depends on the `Customer` class:
 //
 //```cpp
 //class Customer {
@@ -55,6 +63,13 @@
 //};
 //```
 //
-//In this example, the `Order` class has a high coupling with the `Customer` class because it directly uses an instance of the `Customer` class.If changes are made to the `Customer` class (e.g., adding or removing member functions, changing data types), it may require modifications in the `Order` class as well.To achieve low coupling, we could introduce an interface or abstraction for the `Customer` class, allowing the `Order` class to depend on the interface rather than the specific implementation.
+//In this example, the `Order` class has a high coupling with the `Customer` class because it directly
+//uses an instance of the `Customer` class.If changes are made to the `Customer` class (e.g., adding or
+//removing member functions, changing data types), it may require modifications in the `Order` class as well.
+//To achieve low coupling, we could introduce an interface or abstraction for the `Customer` class, allowing
+//the `Order` class to depend on the interface rather than the specific implementation.
 //
-//In summary, a software designer aims to achieve high cohesion within individual modules or components, ensuring that their responsibilities are well - defined and related.They also aim to achieve low coupling between modules, reducing dependencies and making the system more flexible, maintainable, and reusable.These principles contribute to the overall quality and maintainability of the software system.
+//In summary, a software designer aims to achieve high cohesion within individual modules or components,
+//ensuring that their responsibilities are well - defined and related.They also aim to achieve low coupling
+//between modules, reducing dependencies and making the system more flexible, maintainable, and reusable.These
+//principles contribute to the overall quality and maintainability of the software system.

@@ -1,4 +1,3 @@
-
 #include <iostream>
 
 template<typename T>
@@ -15,7 +14,7 @@ private:
 	Node* root;
 
 public:
-	BinarySearchTree() : root(nullptr) {}
+	BinarySearchTree() : root(nullptr) { }
 
 	~BinarySearchTree() {
 		DestroyTree(root);

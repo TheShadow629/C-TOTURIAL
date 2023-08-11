@@ -1,4 +1,7 @@
-//A memory leak occurs in a program when allocated memory is not properly deallocated or released, resulting in memory that is no longer accessible but still reserved by the program.As a result, the program gradually consumes more and more memory, leading to a decrease in available memory for other tasks and potentially causing the program to crash or slow down.
+//A memory leak occurs in a program when allocated memory is not properly deallocated or released,
+//resulting in memory that is no longer accessible but still reserved by the program.As a result,
+//the program gradually consumes more and more memory, leading to a decrease in available memory
+//for other tasks and potentially causing the program to crash or slow down.
 //
 //Here's an example in C++ that demonstrates a memory leak:
 

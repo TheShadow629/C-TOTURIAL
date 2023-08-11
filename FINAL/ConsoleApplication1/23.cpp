@@ -1,7 +1,8 @@
 //A stack and a queue are both linear data structures but differ in their behavior and specific operations.
 //
 //1. Stack:
-//A stack follows the Last - In - First - Out(LIFO) principle, where the last element added is the first one to be removed.The main operations for a stack are :
+//A stack follows the Last - In - First - Out(LIFO) principle, where the last element added is the first one
+//to be removed.The main operations for a stack are :
 //-Push : Adds an element to the top of the stack.
 //- Pop : Removes the topmost element from the stack.
 //- Top : Returns the value of the topmost element without removing it.
@@ -27,7 +28,8 @@ int testSTLStack() {
 }
 
 //2. Queue:
-//A queue follows the First - In - First - Out(FIFO) principle, where the first element added is the first one to be removed.The main operations for a queue are :
+//A queue follows the First - In - First - Out(FIFO) principle, where the first element added is the first
+//one to be removed.The main operations for a queue are :
 //-Enqueue : Adds an element to the back of the queue.
 //- Dequeue : Removes the frontmost element from the queue.
 //- Front : Returns the value of the frontmost element without removing it.
@@ -73,7 +75,8 @@ public:
             q.push(temp);
         }
     }
-
+    //123
+    //7654321
     void pop() {
         q.pop();
     }
@@ -121,7 +124,8 @@ public:
     }
 
     void dequeue() {
-        if (outbox.empty()) {
+        if (outbox.empty()) 
+        {
             // Move all elements from inbox to outbox to reverse their order
             while (!inbox.empty()) {
                 outbox.push(inbox.top());
@@ -162,4 +166,6 @@ int TestMyQueue() {
     return 0;
 }
 
-//In this example, a queue is implemented using two stacks(`inbox` and `outbox`).The `enqueue()` operation is performed by simply pushing elements onto the `inbox` stack.The `dequeue()` and `front()` operations are implemented by transferring elements from the `inbox` stack to the `outbox` stack.The frontmost element can be accessed by returning the top of the `outbox` stack.
+//In this example, a queue is implemented using two stacks(`inbox` and `outbox`).The `enqueue()`
+//operation is performed by simply pushing elements onto the `inbox` stack.The `dequeue()` and
+//`front()` operations are implemented by transferring elements from the `inbox` stack to the `outbox` stack.The frontmost element can be accessed by returning the top of the `outbox` stack.

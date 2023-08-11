@@ -35,14 +35,14 @@ private:
 		T data;
 		Node* next;
 
-		Node(const T& value) : data(value), next(nullptr) {}
+		Node(const T& value) { data = value, next = nullptr; }
 	};
 
 	Node* head;
 	Node* tail;
 
 public:
-	LinkedList() : head(nullptr), tail(nullptr) {}
+	LinkedList() { head = nullptr, tail = nullptr; }
 
 	~LinkedList() {
 		clear();

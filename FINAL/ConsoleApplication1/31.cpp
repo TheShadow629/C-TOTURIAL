@@ -71,7 +71,10 @@ public:
 
 int TestDeepCopy() {
     DeepCopy obj1(5);
-    DeepCopy obj2 = obj1;  // Deep copy
+    DeepCopy obj2 = obj1;  // Deep copy 调用的是拷贝构造函数
+
+    //DeepCopy obj2(6);
+    //obj2 = obj1; 调用系统自带的operator = ,导致浅拷贝
 
     obj1.setData(10);
 
